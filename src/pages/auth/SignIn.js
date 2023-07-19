@@ -71,7 +71,7 @@ const SignIn = () => {
           marginTop: "40px",
         }}
       >
-        Login To Continue{" "}
+        Login To Continue
       </h5>
 
       <Card sx={style}>

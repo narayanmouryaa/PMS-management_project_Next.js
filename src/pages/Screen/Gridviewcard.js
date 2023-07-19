@@ -37,7 +37,7 @@ const GridviewCard = () => {
 
         <Card sx={{borderRadius:2,mt:2}}  >
             <CardContent>
-                <Typography sx={{ fontSize: 16, textAlign: 'start' }} gutterBottom>
+                <Typography sx={{ fontSize: 16, textAlign: 'start',textWrap:'wrap' }} gutterBottom>
                     As a translator,I want integrate Crowdin webhook to notify translators about changed strings
                 </Typography>
 

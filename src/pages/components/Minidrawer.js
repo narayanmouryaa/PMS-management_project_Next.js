@@ -64,7 +64,7 @@ const NestedList = ({ primary, list }) => {
                             </ListItemIcon>
 
                             <ListItemText primary={list} />
-                            <Button><BasicMenu /></Button>
+                            <BasicMenu />
                         </ListItem>
                     ))}
 
@@ -74,7 +74,7 @@ const NestedList = ({ primary, list }) => {
                                 <FormatListBulletedIcon sx={{ml:2}} />
                             </ListItemIcon>
                             <ListItemText primary={text} />
-                            <Button><BasicMenu /></Button>
+                            <BasicMenu />
                         </ListItem>
                     ))}
                 </List>

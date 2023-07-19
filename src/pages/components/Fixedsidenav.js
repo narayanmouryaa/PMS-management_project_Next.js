@@ -83,12 +83,9 @@ const FixedSidenav = () => {
 
         <Nav.Link href="/"> 
             <LogoutIcon style={{marginTop:'280px',marginLeft:'20px'}}/>
-            </Nav.Link> 
+            </Nav.Link>        
 
-        
-
-      </SidenavContainer>
-      
+      </SidenavContainer>  
       
 
     </>
