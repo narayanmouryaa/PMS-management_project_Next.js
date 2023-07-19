@@ -45,7 +45,7 @@ const PersonIcon = () => {
         className="person-item"
         onClick={() => handlePersonSelect(person)}
       >
-        <img style={{ width: '40px', height: '40px', borderRadius: '50%', margin: '5px' }} src={person.icon} alt={person.name} />
+        <img style={{ width: '45px', height: '45px', borderRadius: '50%', margin: '5px' }} src={person.icon} alt={person.name} />
         <span style={{ cursor: 'pointer' }}>{person.name}</span>
       </MenuItem>
     ));

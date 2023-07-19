@@ -1,22 +1,3 @@
-// import React from 'react'
-
-// const Calendaricon = () => {
-//   return (
-//     <div>
-//       Calendaricon
-//     </div>
-//   )
-// }
-
-// export default Calendaricon
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -27,7 +8,7 @@ const CalendarIcon = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  
+
   const handleDateSelect = (date) => {
     setSelectedDate(date);
   };
@@ -38,25 +19,25 @@ const CalendarIcon = () => {
 
   return (
     <div className="calendar-icon-container">
-      
-        <div>         
-          <button style={{ border: 'none', backgroundColor: 'white' }} className="change-date-btn" onClick={toggleCalendar}>
-           {selectedDate ? (
+
+      <div>
+        <button style={{ border: 'none', backgroundColor: 'white' }} className="change-date-btn" onClick={toggleCalendar}>
+          {selectedDate ? (
             <>
-            <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
-            <p style={{ fontSize: '15px',marginBottom:'0px' }}>{selectedDate.toLocaleDateString()}</p>
-            <p style={{fontSize:'12px'}}>{selectedDate.toLocaleTimeString()}</p>
+              <h5 style={{ marginBottom: '0px', fontSize: '11px', color: 'grey' }}>START DATE</h5>
+              <p style={{ fontSize: '15px', marginBottom: '0px' }}>{selectedDate.toLocaleDateString()}</p>
+              <p style={{ fontSize: '12px' }}>{selectedDate.toLocaleTimeString()}</p>
             </>
-            
-           ):(
-            <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }}  />
-           )}
-            
-          </button>
-           </div>
-           
-         
-     
+
+          ) : (
+            <CalendarMonthIcon style={{ borderRadius: '50%', border: '1px solid black', fontSize: '35px', padding: '5px' }} />
+          )}
+
+        </button>
+      </div>
+
+
+
       <Menu open={!!anchorEl} anchorEl={anchorEl} sx={{ zIndex: 10000, padding: 0 }}>
         <DatePicker
           selected={selectedDate}
@@ -69,7 +50,7 @@ const CalendarIcon = () => {
           inline
         />
         <div>
-          <Button onClick={() => setAnchorEl(null)} style={{backgroundColor:'blue',color:'white',marginLeft:'10px'}}>
+          <Button onClick={() => setAnchorEl(null)} style={{ backgroundColor: 'blue', color: 'white', marginLeft: '10px' }}>
             Submit
           </Button>
         </div>

@@ -25,19 +25,20 @@ import Stopwatch from './TimeTracker';
 import CalendarDueIcon from '../components/Calendarduedate';
 import PersonIcon from '../components/UserIcon';
 import SubtaskList from './subtask';
-
+// import { useRef } from 'react';
 const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
+    top:"50%",
+    left:"50%",
     transform: 'translate(-50%, -50%)',
     width: 1500,
     height: 650,
     bgcolor: 'background.paper',
-    borderRadius: "10px",
+    borderRadius: 2,
     boxShadow: 24,
-    // p: 4,
+    
 };
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -94,10 +95,8 @@ export default function TaskModal({ open, setOpen }) {
         else {
             setOpen(false);
         }
-    };
-
-
-
+   };
+   
     return (
         <div>
 
@@ -134,11 +133,11 @@ export default function TaskModal({ open, setOpen }) {
                                         <Box>
                                             <IconDropdown />
                                         </Box>
-                                        <Box style={{ marginTop: '30px', marginLeft: '10px' }}>
+                                        <Box style={{ marginTop: '28px', marginLeft: '20px' }}>
 
                                             <PersonIcon />
                                         </Box>
-                                        <Box style={{ marginTop: '35px', marginLeft: '30px' }}>
+                                        <Box style={{ marginTop: '35px', marginLeft: '20px' }}>
                                             <FlagIconDropdown />
                                         </Box>
 
@@ -147,16 +146,20 @@ export default function TaskModal({ open, setOpen }) {
 
 
 
-                                    <Box className='box-container' style={{ width: '800px', height: '500px' }}>
+                                    <Box className='box-container' 
+                                    // style={{ width: '800px', height: '500px',backgroundColor:'red' }}
+                                    // sx={{backgroundColor:'red'}}
+                                    sx={{overflowY:'scroll',width:800,height:500}}
+                                     >
 
-                                        <Box mt={4} ml={4}>
+                                        <Box mt={4} ml={4} >
 
                                             <FormControl variant="standard" >
-                                                <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "500", fontSize: '22px', color: 'black' }}>
+                                                <InputLabel htmlFor="input-with-icon-adornment" style={{ fontWeight: "500", fontSize: '22px', color: 'black'}}>
                                                     Task Name
                                                 </InputLabel>
                                                 <Input
-                                                    style={{ width: '700px', marginTop: '30px' }}
+                                                    sx={{ width: 700,mt:4 }}
                                                     id="input-with-icon-adornment"
                                                     placeholder="Enter Task Name"
                                                     type='text'
@@ -170,8 +173,9 @@ export default function TaskModal({ open, setOpen }) {
                                         </Box>
 
 
-                                        <Typography style={{ marginTop: '20px', marginLeft: '30px', fontweight: '500' }}> Task Description </Typography>
-
+                                        <Typography 
+                                         sx={{mt:4,ml:4,fontWeight:'500'}}
+                                        > Task Description </Typography>
                                         <Box >
                                             <TextEditor />
                                         </Box>
@@ -202,6 +206,7 @@ export default function TaskModal({ open, setOpen }) {
                                         <Box mt={4} ml={4}>
                                             <SubtaskList />
                                         </Box>
+
                                     </Box>
 
                                 </Box>
