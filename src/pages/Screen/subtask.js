@@ -48,7 +48,7 @@ const SubtaskList = () => {
 
 
     return (
-        <Box style={{ display: 'flex', alignItems: 'center', width: '700px' }}>
+        <Box style={{ display: 'flex', alignItems: 'center', width: '700px'}}>
             <div>
                 <List>
                     {subtasks.map((subtask, index) => (
@@ -66,7 +66,7 @@ const SubtaskList = () => {
 
                 <TextField
                     label="Add Subtask"
-                    style={{ width: '700px' }}
+                    style={{ width: '700px'}}
                     value={newSubtask}
                     onChange={(e) => setNewSubtask(e.target.value)}
                     InputProps={{
@@ -74,7 +74,7 @@ const SubtaskList = () => {
                             <>
 
                                 <Tooltip title="Start Date" placement="top">
-                                    <CalendarIcon />
+                                    <CalendarIcon/>
                                 </Tooltip>
 
                                 <Tooltip title="Due Date" placement="top">

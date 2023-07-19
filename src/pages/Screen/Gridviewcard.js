@@ -35,7 +35,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const GridviewCard = () => {
     return (
 
-        <Card sx={{borderRadius:2,mt:2 }}  >
+        <Card sx={{borderRadius:2,mt:2}}  >
             <CardContent>
                 <Typography sx={{ fontSize: 16, textAlign: 'start' }} gutterBottom>
                     As a translator,I want integrate Crowdin webhook to notify translators about changed strings

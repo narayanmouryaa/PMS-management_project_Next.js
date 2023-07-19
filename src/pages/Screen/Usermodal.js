@@ -181,10 +181,6 @@ function UserModal({ open, setOpen }) {
                   </TableRow>
                 </TableBody>
               </Table>
-
-
-
-
             </TableContainer>
           )}
         </DialogContent>

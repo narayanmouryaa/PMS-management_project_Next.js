@@ -60,7 +60,7 @@ const NestedList = ({ primary, list }) => {
                     {[' Arvind Folder'].map((list, index) => (
                         <ListItem key={index} disablePadding>
                             <ListItemIcon>
-                                < FolderCopyOutlinedIcon />
+                                < FolderCopyOutlinedIcon sx={{ml:2}} />
                             </ListItemIcon>
 
                             <ListItemText primary={list} />
@@ -71,7 +71,7 @@ const NestedList = ({ primary, list }) => {
                     {[' List 1', "List 2", "List 3", "List 4", "List 5"].map((text, index) => (
                         <ListItem style={{ height: '35px' }} key={index} disablePadding>
                             <ListItemIcon>
-                                <FormatListBulletedIcon />
+                                <FormatListBulletedIcon sx={{ml:2}} />
                             </ListItemIcon>
                             <ListItemText primary={text} />
                             <Button><BasicMenu /></Button>
@@ -113,12 +113,13 @@ export default function MiniDrawer() {
             <Root>
                 {!open ? <button style={{
                     position: "absolute",
-                    top: "75px",
+                    top: "70px",
                     left: "45px",
                     zIndex: 2500,
                     color: "white",
                     border: 'none',
                     backgroundColor: 'blue',
+                    borderRadius:"50%"
 
                 }}
                     onClick={handleDrawerOpen}><ChevronRightIcon />  </button> : null}
@@ -148,18 +149,18 @@ export default function MiniDrawer() {
                             <Typography style={{ display: 'flex', marginRight: "150px", color: 'grey' }}>Favorites</Typography>
 
                             <IconButton onClick={() => setOpen(!open)}>
-                                {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ backgroundColor: 'blue', color: 'white', position: 'absolute', bottom: "12px" }} /> : <ChevronRightIcon />}
+                                {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ backgroundColor: 'blue', color: 'white', position: 'absolute', bottom: "12px",borderRadius:'50%' }} /> : <ChevronRightIcon />}
                             </IconButton>
                         </DrawerHeader>
                         <Divider />
                         <List>
                             {['Spaces'].map((text, index) => (
-                                <ListItem style={{ paddingLeft: '20px', color: 'grey' }} key={text} disablePadding>
+                                <ListItem style={{ paddingLeft: '40px', color: 'grey' }} key={text} disablePadding>
                                     <ListItemButton>
                                         <ListItemText primary={text} />
                                     </ListItemButton>
                                     
-                                    <Button style={{ marginLeft: '180px' }} onClick={() => handleClose1(true)}> <AddIcon style={{ color: 'black' }} /></Button>
+                                    <Button style={{ marginLeft: '155px' }} onClick={() => handleClose1(true)}> <AddIcon style={{ color: 'black' }} /></Button>
                                     <CommonModal open={openModal1} handleClose={() => {
                                         handleClose1(false);
                                         

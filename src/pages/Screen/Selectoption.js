@@ -8,6 +8,7 @@ import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import Nav from 'react-bootstrap/Nav';
 // import CustomizedDialogs from './List';
 import Folder from './Folder';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -15,7 +16,7 @@ import Folder from './Folder';
 export default function BasicMenu() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [openModal, setOpenModal] = React.useState(false);
+  // const [openModal, setOpenModal] = React.useState(false);
   const [openFolder, setOpenFolder] = React.useState(false)
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -34,7 +35,7 @@ export default function BasicMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        +
+        <AddIcon sx={{color:'black',fontSize:20}}/>
       </Button>
 
 
