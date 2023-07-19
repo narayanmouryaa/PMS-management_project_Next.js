@@ -43,7 +43,7 @@ export default function SignUp() {
     const api = await axios.post(apiUrl, data, config);
     if (api.status === 200) {
       setCookie("UserRegistertoken", api.data.token);
-      router.push("/Home");
+      // router.push("/Home");
       alert(api.data.message);
     } else {
       toast.error(api.data.message);

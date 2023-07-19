@@ -38,7 +38,8 @@ const SignIn = () => {
       setCookie("Userlogintoken", api.data.token);
       // toast.success(api.data.message);
       alert(api.data.message);
-      navigate.push("/Home");
+      console.log(api.data.message);
+      navigate.push("/Home")
     } else {
       alert(api.data.message);
     }
@@ -102,29 +103,20 @@ const SignIn = () => {
             </Button>
 
             <Box>
-              <Link href="/auth/SignUp">
-              <Button style={{ color: "black", textTransform: "none"}}>
-                SignUp
+              <Button style={{ color: "black", textTransform: "none" }}>
+                <Link href="/auth/SignUp">SignUp</Link>
               </Button>
-              </Link>
             </Box>
           </Box>
 
           <Button
-            style={{ marginTop: "20px", height: "50px", textTransform: "none"}}
+            style={{ marginTop: "20px", height: "50px", textTransform: "none" }}
             type="submit"
             variant="contained"
             color="primary"
             fullWidth
           >
-               
-            <Button style={{color:'white'}}>               
-            <Link href="/Home" style={{color:'white',textTransform:'none'}}>
-              Sign In
-             </Link>
-              </Button>  
-            
-            
+            Sign In
           </Button>
         </form>
       </Card>
