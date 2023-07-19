@@ -8,7 +8,6 @@ import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import InputAdornment from "@mui/material/InputAdornment";
-import { red } from "@mui/material/colors";
 import PropTypes from "prop-types";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -26,7 +25,7 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import Avatar from "../components/Avatar";
-// import Grid from '@mui/material/Grid';
+import axios from 'axios'
 
 const style = {
   position: "absolute",
@@ -178,8 +177,11 @@ const CommonModal = ({ open, handleClose }) => {
     comapleteStatus,
     closedStatus,
   ];
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const accessToken = localStorage.getItem("Userlogintoken")
     const config = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
