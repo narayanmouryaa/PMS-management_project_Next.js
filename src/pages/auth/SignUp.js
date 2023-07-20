@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -14,11 +15,17 @@ import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import {
+  // userFetchThunk,
+  userSignUpThunk,
+} from "../../store/feature/LoginAuthenticationSlice";
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -27,8 +34,7 @@ export default function SignUp() {
   const [cookies, setCookie] = useCookies(["name"]);
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
 
@@ -43,13 +49,18 @@ export default function SignUp() {
     const api = await axios.post(apiUrl, data, config);
     if (api.status === 200) {
       setCookie("UserRegistertoken", api.data.token);
-      router.push("/Home");
+      // router.push("/Home");
       alert(api.data.message);
     } else {
       toast.error(api.data.message);
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   dispatch(userSignUpThunk(data));
+  //   // dispatch(userFetchThunk());
+  // };
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -134,7 +145,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/auth/SignIn" variant="body2">
+                <Link href="/" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

@@ -38,7 +38,8 @@ const SignIn = () => {
       setCookie("Userlogintoken", api.data.token);
       // toast.success(api.data.message);
       alert(api.data.message);
-      navigate.push("/Home");
+      console.log(api.data.message);
+      navigate.push("/Home")
     } else {
       alert(api.data.message);
     }
@@ -97,15 +98,13 @@ const SignIn = () => {
             onChange={handleOnChange}
           />
           <Box style={{ display: "flex" }}>
-            <Button style={{ color: "black", textTransform: "none" }}>
-              <Link href="/auth/ForgotPassword">Forgot Password?</Link>
+            <Button>
+              <Link style={{color:'black',textDecoration:'none'}} href="/auth/ForgotPassword">Forgot Password?</Link>
             </Button>
             <Box>
-              <Link href="/auth/SignUp">
-                <Button style={{ color: "black", textTransform: "none" }}>
-                  SignUp
-                </Button>
-              </Link>
+              <Button>
+                <Link style={{color:'black',textDecoration:'none'}} href="/auth/SignUp" >  SignUp  </Link>
+              </Button>
             </Box>
           </Box>
 
@@ -116,17 +115,15 @@ const SignIn = () => {
             color="primary"
             fullWidth
           >
-            <Link href="/Home" style={{ color: 'white', textDecoration:'none'}}>
-              Sign In
-            </Link>
-          </Button>
 
-          {/* <Button style={{color:'white'}}>               
             
-              </Button>   */}
+              <Link href="/Home" style={{ color: 'white', textDecoration:'none' }}>
+                Sign In
+              </Link>
+            
 
 
-
+          </Button>
         </form>
       </Card>
     </div>

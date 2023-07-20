@@ -50,7 +50,7 @@ function Listview() {
 
 
 
-        <Box sx={{display: 'flex', p: 2,overflowX:'auto' }}>
+        <Box sx={{display: 'flex', p: 2}}>
 
           {/* <Grid container spacing={2}> */}
           {/* <Grid item xs={3} > */}
