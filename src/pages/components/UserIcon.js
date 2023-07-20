@@ -5,7 +5,7 @@ import { Menu, MenuItem } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 const personData = [
-  { id: 1, name: 'John Doe', icon: "./Images/Person1.jpg" },
+  { id: 1, name: 'John Doe', icon: "../assets/images/Person1.jpg" },
   { id: 2, name: 'Jane Smith', icon: './Images/Person2.jpg' },
   { id: 3, name: 'David Johnson', icon: './Images/Person3.jpg' },
   { id: 4, name: 'Jass', icon: './Images/Person4.jpg' }
@@ -45,7 +45,7 @@ const PersonIcon = () => {
         className="person-item"
         onClick={() => handlePersonSelect(person)}
       >
-        <img style={{ width: '45px', height: '45px', borderRadius: '50%', margin: '5px' }} src={person.icon} alt={person.name} />
+        {/* <img style={{ width: '45px', height: '45px', borderRadius: '50%', margin: '5px' }} src={person.icon} alt={person.name} /> */}
         <span style={{ cursor: 'pointer' }}>{person.name}</span>
       </MenuItem>
     ));
@@ -59,7 +59,7 @@ const PersonIcon = () => {
           {selectedPersons.map((selectedPerson) => 
           <>
           <span style={{position: 'relative', marginRight: 8}}>
-          <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={selectedPerson.icon} alt="SP" />
+          {/* <img style={{width:'40px',height:'40px',borderRadius:'50%'}} src={selectedPerson.icon} alt="SP" /> */}
           <span style={{top: -15, position: 'absolute', right: -10}} onClick={(event) => handleUnselectClick(event, selectedPerson)}>
             <CancelIcon color='action' />
           </span>

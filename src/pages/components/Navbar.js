@@ -52,7 +52,7 @@ export default function NavbarFixed() {
       <Navbar
         bg="light"
         expand="lg"
-        style={{ position: "fixed", width:'100%', "z-index": "2200" }}
+        style={{ position: "fixed", width:'100%', "zIndex": "2200" }}
       >
         <Container fluid style={{ padding: "0px 36px 0px 8px" }}>
           <AppsIcon sx={{ml:2}}/>
@@ -92,7 +92,7 @@ export default function NavbarFixed() {
               <Link href="../Screen/settings" style={{ marginTop:"5px", color: 'black' }}>
                 <SettingsIcon />
               </Link>
-              <Avatar style={{ marginTop: "3px",marginLeft:'10px' }} src="/Images/man1.jpg"></Avatar>
+              <Avatar style={{ marginTop: "3px",marginLeft:'10px' }} src=""></Avatar>
             </Form>
           </Navbar.Collapse>
         </Container>

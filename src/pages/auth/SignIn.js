@@ -21,7 +21,7 @@ const SignIn = () => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
-  console.log(cookies, "saurabhCookies");
+  // console.log(cookies, "saurabhCookies");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -100,32 +100,33 @@ const SignIn = () => {
             <Button style={{ color: "black", textTransform: "none" }}>
               <Link href="/auth/ForgotPassword">Forgot Password?</Link>
             </Button>
-
             <Box>
               <Link href="/auth/SignUp">
-              <Button style={{ color: "black", textTransform: "none"}}>
-                SignUp
-              </Button>
+                <Button style={{ color: "black", textTransform: "none" }}>
+                  SignUp
+                </Button>
               </Link>
             </Box>
           </Box>
 
           <Button
-            style={{ marginTop: "20px", height: "50px", textTransform: "none"}}
+            style={{ marginTop: "20px", height: "50px", textTransform: "none" }}
             type="submit"
             variant="contained"
             color="primary"
             fullWidth
           >
-               
-            <Button style={{color:'white'}}>               
-            <Link href="/Home" style={{color:'white',textTransform:'none'}}>
+            <Link href="/Home" style={{ color: 'white', textDecoration:'none'}}>
               Sign In
-             </Link>
-              </Button>  
-            
-            
+            </Link>
           </Button>
+
+          {/* <Button style={{color:'white'}}>               
+            
+              </Button>   */}
+
+
+
         </form>
       </Card>
     </div>

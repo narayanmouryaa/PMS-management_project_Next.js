@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from "../components/Navbar"
 import FixedSidenav from '../components/Fixedsidenav'
 import MiniDrawer from '../components/Minidrawer'
@@ -27,67 +27,85 @@ import UserModal from '../Screen/Usermodal';
 
 
 
-function  Listview (){
+function Listview() {
 
   const [openModal, setOpenModal] = React.useState(false);
   const [open, setOpen] = useState(false);
 
 
+
+  // const ClearConsoleButton = () => {
+  //   const handleClearConsole = () => {
+  //     console.clear();
+  //   };
+
+
   return (
     <>
-      <Navbar/>
-      {/* <Divider component='li' style={{ paddingTop: '35px' }} /> */}
-      {/* <Divider component='li' style={{ paddingTop: '45px' }} /> */}
-      <FixedSidenav />
-      <Box sx={{ flexGrow: 1 }} style={{ padding: '5px' }}>
-        <Grid container spacing={2}>
-          <Grid item xs={3} >
-
-            <MiniDrawer />
-          </Grid>
-          <Grid item xs={9}>
-            <Box style={{ height: '100vh', width: '71vw',marginTop:'65px'  }}>
-
-              <Typography >
-                <span style={{ fontWeight: '600' }}
-                >Hey mariana -</span>  heres a look of your store
-              </Typography>
-
-              <Typography style={{ marginTop: '30px' }} >  <FormatListBulletedIcon /> List 1</Typography>
-
-              <Box style={{ display: 'flex', alignItems: "center" }}>
-                <SquareIcon style={{ color: '' }}/>
-
-                
-                  
-                  <Link href="#"onClick={()=>setOpen(true)} >
-                    <Button >
-                      <PersonAddIcon  style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
-                    </Button>
-                    
-                  </Link>
+      <Box sx={{ position: 'fixed' }}>
+        <Navbar />
+        {/* onClick={handleClearConsole} */}
+        {/* <Divider component='li' style={{ paddingTop: '35px' }} /> */}
+        {/* <Divider component='li' style={{ paddingTop: '45px' }} /> */}
 
 
-                  <Link href="#" onClick={() => setOpenModal(true)}>
-                    <Button style={{ color: 'black', display: 'inline'}} >
-                      Task one
-                    </Button>
-                  </Link>
 
-              </Box>
-              <SubtaskList />
+        <Box sx={{display: 'flex', p: 2,overflowX:'auto' }}>
+
+          {/* <Grid container spacing={2}> */}
+          {/* <Grid item xs={3} > */}
+          <FixedSidenav />
+          <MiniDrawer />
+          {/* </Grid> */}
+          {/* <Grid item xs={8}> */}
+          <Box
+            // sx={{ml:8,width: '80vw',height:'100%', display: 'flex',overflowX:'auto'}}>
+            sx={{ minWidth:600, mt: 10, ml: 8,overflowX:'auto'}} >
+
+            <Typography >
+              <span style={{ fontWeight: '600' }}
+              >Hey mariana -</span>  heres a look of your store
+            </Typography>
+
+
+            <Typography style={{ marginTop: '30px' }}><FormatListBulletedIcon sx={{ mr: 2 }} />
+              List 1</Typography>
+
+            <Box style={{ display: 'flex', alignItems: "center" }}>
+              <SquareIcon style={{ color: '' }} />
+
+
+
+              <Link href="#" onClick={() => setOpen(true)} >
+                <Button >
+                  <PersonAddIcon style={{ marginLeft: '10px', color: 'white', backgroundColor: 'black', borderRadius: '50%' }} />
+                </Button>
+
+              </Link>
+
+
+              <Link style={{ textDecoration: 'none' }} href="#" onClick={() => setOpenModal(true)}>
+                <Button style={{ color: 'black', display: 'inline', }} >
+                  Task one
+                </Button>
+              </Link>
+
             </Box>
+            <SubtaskList />
+          </Box>
 
-          </Grid>
+          {/* </Grid> */}
 
-        </Grid>
-
-
-      </Box >
-      <TaskModal open={openModal} setOpen={setOpenModal} />
-      <UserModal open={open} setOpen={setOpen} />
+          {/* </Grid> */}
 
 
+        </Box >
+
+
+        <TaskModal open={openModal} setOpen={setOpenModal} />
+        <UserModal open={open} setOpen={setOpen} />
+
+      </Box>
     </>
   );
 };

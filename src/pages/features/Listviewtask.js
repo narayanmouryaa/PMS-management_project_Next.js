@@ -58,7 +58,7 @@ const SubtaskList = () => {
                     </List>
                     <TextField
                         label="Add Task"
-                        style={{ width: '1100px', borderRadius: '0px' }}
+                        sx={{ width:'70vw', borderRadius: '0px' }}
 
                         //     inputProps={{
                         //     endAdornment :(
@@ -99,11 +99,7 @@ const SubtaskList = () => {
                                 </>
                             )
                         }}
-
-
                     />
-
-
                 </div>
 
             </Box>
