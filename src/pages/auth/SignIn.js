@@ -21,7 +21,7 @@ const SignIn = () => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
-  console.log(cookies, "saurabhCookies");
+  // console.log(cookies, "saurabhCookies");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,10 +36,10 @@ const SignIn = () => {
     if (api.status === 200) {
       localStorage.setItem("Userlogintoken", api.data.token);
       setCookie("Userlogintoken", api.data.token);
-      // toast.success(api.data.message);
+      toast.success(api.data.message);
       alert(api.data.message);
       console.log(api.data.message);
-      navigate.push("/Home")
+      navigate.push("/Home");
     } else {
       alert(api.data.message);
     }
@@ -72,7 +72,7 @@ const SignIn = () => {
           marginTop: "40px",
         }}
       >
-        Login To Continue{" "}
+        Login To Continue
       </h5>
 
       <Card sx={style}>
@@ -101,7 +101,6 @@ const SignIn = () => {
             <Button style={{ color: "black", textTransform: "none" }}>
               <Link href="/auth/ForgotPassword">Forgot Password?</Link>
             </Button>
-
             <Box>
               <Button style={{ color: "black", textTransform: "none" }}>
                 <Link href="/auth/SignUp">SignUp</Link>
@@ -110,7 +109,11 @@ const SignIn = () => {
           </Box>
 
           <Button
-            style={{ marginTop: "20px", height: "50px", textTransform: "none" }}
+            style={{
+              marginTop: "20px",
+              height: "50px",
+              textDecoration: "none",
+            }}
             type="submit"
             variant="contained"
             color="primary"
@@ -118,6 +121,10 @@ const SignIn = () => {
           >
             Sign In
           </Button>
+
+          {/* <Button style={{color:'white'}}>               
+            
+              </Button>   */}
         </form>
       </Card>
     </div>

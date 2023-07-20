@@ -36,9 +36,7 @@ const style = {
     bgcolor: 'background.paper',
     borderRadius: 2,
     boxShadow: 24,
-    
 };
-
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -64,9 +62,7 @@ function BootstrapDialogTitle(props) {
                         right: 8,
                         top: 8,
                         color: (theme) => theme.palette.grey[500],
-
                         // display: 'inline-block'
-
                     }}
                 >
                     <CloseIcon />

@@ -1,31 +1,8 @@
-// import React from 'react'
-
-// const Calendarduedate = () => {
-//   return (
-//     <div>
-//       Calendarduedate
-//     </div>
-//   )
-// }
-
-// export default Calendarduedate
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { Button, Menu } from '@mui/material';
-// import './CalendarIcon.css';
 
 const CalendarIcon = () => {
   const [selectedDate, setSelectedDate] = useState(null);

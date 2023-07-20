@@ -49,7 +49,8 @@ export default function SignUp() {
     const api = await axios.post(apiUrl, data, config);
     if (api.status === 200) {
       setCookie("UserRegistertoken", api.data.token);
-      // router.push("/Home");
+      toast.success(api.data.message);
+      router.push("/Home");
       alert(api.data.message);
     } else {
       toast.error(api.data.message);
@@ -145,7 +146,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
+                <Link href="/auth/SignIn" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

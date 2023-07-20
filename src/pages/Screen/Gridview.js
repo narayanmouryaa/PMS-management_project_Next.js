@@ -4,20 +4,20 @@ import FixedSidenav from '../components/Fixedsidenav'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
+// import Grid from '@mui/material/Grid';
+// import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+// import CardContent from '@mui/material/CardContent';
+// import Typography from '@mui/material/Typography';
 import GridviewCard from './Gridviewcard';
 // import Divider from '@mui/material/Divider';
-import Form from 'react-bootstrap/Form';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
+// import Form from 'react-bootstrap/Form';
+// import Avatar from '@mui/material/Avatar';
+// import AvatarGroup from '@mui/material/AvatarGroup';
 // import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
 // import SearchIcon from '@mui/icons-material/Search';
 import MiniDrawer from '../components/Minidrawer';
 
@@ -39,105 +39,110 @@ const Gridview = () => {
   };
   return (
     <>
-      <Box sx={{ display: 'flex', position: 'fixed'}}>
-
+      <Box sx={{ display: 'flex', position: 'fixed' }}>
         <NavbarFixed />
-        <FixedSidenav />
-        <MiniDrawer />
 
-        <Box width={1150} height={750} sx={{ml: 5, display: 'flex' }}>
+        <Box sx={{ width: '100vw',display: 'flex',overflowX:'auto' }}>
+          <FixedSidenav />
+          <MiniDrawer />
 
-          
-          <Box width={330} height={650} sx={{ mt: 8, ml: 5}}>
-            <Box width={330} height={60} sx={{ backgroundColor:'lightcoral',borderRadius:2,mb: 2, p: 2, fontWeight: '500', fontSize: '20px' }}> TO DO </Box>
+          <Box sx={{ml:8,width: '80vw',height:'100%', display: 'flex',overflowX:'auto'}} >
 
+            <Box   sx={{ minWidth:300, mt: 8 ,wordWrap:'nowrap',textWrap:'nowrap'}}>
 
-            <Box className="scrollbar" width={330} height={550} sx={{ overflowY: 'auto' }}>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
+              <Box sx={{ margin:'auto',height: '7%', width: '90%', borderRadius: 2,  p: 2, fontWeight: '500', fontSize: '20px', boxShadow: "1px 3px 1px #9E9E9E"}}>
+                TO DO
               </Box>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
+              <Box className="scrollbar" sx={{ minWidth:200, height: '70%', overflowY: 'auto',mt:2}}>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
+                <Box className="item" sx={{minWidth:260, minWidth:280, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
 
-            </Box>
+                <Box  sx={{ width:'100%', borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
 
-          </Box>
+                <Box sx={{ minWidth:260, borderRadius: 2, margin:'auto'}}>
+                  <GridviewCard />
+                </Box>
 
+                <Box  sx={{ minWidth:260, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
 
-
-          <Box width={330} height={650} sx={{ mt: 8, ml: 5 }}>
-            <Box width={330} height={60} sx={{ backgroundColor:'lightcoral',borderRadius:2,mb: 2, p: 2, fontWeight: '500', fontSize: '20px' }}> IN PROGRESS </Box>
-
-
-            <Box className="scrollbar" width={330} height={550} sx={{ overflowY: 'auto' }}>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
               </Box>
 
             </Box>
 
-          </Box>
 
 
 
-
-
-          <Box width={330} height={650} sx={{ mt: 8, ml: 5 }}>
-            <Box width={330} height={60} sx={{ backgroundColor:'lightcoral',borderRadius:2,mb: 2, p: 2, fontWeight: '500', fontSize: '20px' }}> COMPLETE </Box>
-
-
-            <Box className="scrollbar" width={330} height={550} sx={{ overflowY: 'auto' }}>
-
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
+            <Box sx={{ minWidth: 300, mt: 8 ,ml:1}}>
+              <Box sx={{ margin:'auto',height: '7%', width: '90%',borderRadius: 2,  p: 2, fontWeight: '500', fontSize: '20px', boxShadow: "1px 3px 1px #9E9E9E" }}>
+                IN PROGRESS
               </Box>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
-              </Box>
+              <Box className="scrollbar" sx={{minWidth:300, height: '70%', overflowY: 'auto',mt:2  }}>
 
-              <Box width={310} height={180} sx={{ backgroundColor: 'green', borderRadius: 2, ml: 1, mt: 2 }}>
-                <GridviewCard />
+                <Box sx={{ minWidth:'260px', borderRadius: 2, margin:'auto',position:'inherit' }}>
+                  <GridviewCard />
+                </Box>
+
+                <Box  sx={{ minWidth:260, borderRadius: 2,margin:'auto'}}>
+                  <GridviewCard />
+                </Box>
+
+                <Box  sx={{ minWidth:260, borderRadius: 2,margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
+                <Box  sx={{ minWidth:260, borderRadius: 2,margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
               </Box>
 
             </Box>
 
+
+
+
+            <Box sx={{ minWidth:300, mt: 8 ,textTransform:'none'}}>
+              <Box sx={{ height: '7%', width: '90%',borderRadius: 2, margin:'auto', p: 2, fontWeight: '500', fontSize: '20px', boxShadow: "1px 3px 1px #9E9E9E" }}>
+              COMPLETE
+              </Box>
+
+
+              <Box className="scrollbar" sx={{ minWidth:300, height: '70%', overflowY: 'auto',mt:2}}>
+
+                <Box sx={{ minWidth:260, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
+                <Box  sx={{ minWidth:260, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
+                <Box sx={{ minWidth:260, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
+                <Box  sx={{ minWidth:260, borderRadius: 2, margin:'auto' }}>
+                  <GridviewCard />
+                </Box>
+
+              </Box>
+
+            </Box>
+
+            
+
           </Box>
-
-
         </Box>
-
-
-        
-
       </Box>
 
       {/* <Box style={{ padding: '5px' }}>
