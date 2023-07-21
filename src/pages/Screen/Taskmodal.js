@@ -16,7 +16,7 @@ import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
-import TextEditor from './TextEditor';
+// import TextEditor from './TextEditor';
 import FlagIconDropdown from './Drop';
 import IconDropdown from '../features/PendingDrop';
 import MessageBox from '../features/Commentbox';
@@ -31,8 +31,10 @@ const style = {
     top:"50%",
     left:"50%",
     transform: 'translate(-50%, -50%)',
-    width: 1500,
-    height: 650,
+    // width: 1500,
+    width:'98%',
+    // height: 650,
+    height:'92%',
     bgcolor: 'background.paper',
     borderRadius: 2,
     boxShadow: 24,
@@ -173,9 +175,9 @@ export default function TaskModal({ open, setOpen }) {
                                         <Typography 
                                          sx={{mt:4,ml:4,fontWeight:'500'}}
                                         > Task Description </Typography>
-                                        <Box >
+                                        {/* <Box >
                                             <TextEditor />
-                                        </Box>
+                                        </Box> */}
 
 
                                         <Box mt={4} ml={4}>

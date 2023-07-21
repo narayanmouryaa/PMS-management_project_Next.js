@@ -113,7 +113,7 @@ export default function MiniDrawer() {
             <Root>
                 {!open ? <button style={{
                     position: "absolute",
-                    top: "70px",
+                    top: "68px",
                     left: "45px",
                     zIndex: 2500,
                     color: "white",
@@ -135,7 +135,7 @@ export default function MiniDrawer() {
                                 width: drawerWidth,
                                 boxSizing: 'border-box',
                                 left: '38px',
-                                top: '65px',
+                                top: '60px',
                                 position: 'relative',
                                 display: 'flex',
                                 height: '100vh',
