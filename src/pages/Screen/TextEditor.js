@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 let ReactQuill;
 if (typeof document !== "undefined") {
-  ReactQuill = dynamic(import('react-quill'));
+  ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 }
 import 'react-quill/dist/quill.snow.css';
 
