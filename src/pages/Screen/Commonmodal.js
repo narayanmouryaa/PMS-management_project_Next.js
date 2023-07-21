@@ -122,7 +122,7 @@ const CommonModal = ({ open, handleClose }) => {
   const [activeStatus, setActiveStatus] = useState("");
   const [comapleteStatus, setComapleteStatus] = useState("");
   const [closedStatus, setClosedStatus] = useState("");
-  console.log(spaceName, "dsjndjksnd");
+  // console.log(spaceName, "dsjndjksnd");
   const handleSelectChange = (event) => {
     const selectedValues = Array.from(
       event.target.userName,

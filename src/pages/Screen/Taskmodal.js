@@ -16,7 +16,7 @@ import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
-// import TextEditor from './TextEditor';
+import TextEditor from './TextEditor';
 import FlagIconDropdown from './Drop';
 import IconDropdown from '../features/PendingDrop';
 import MessageBox from '../features/Commentbox';
@@ -175,9 +175,9 @@ export default function TaskModal({ open, setOpen }) {
                                         <Typography 
                                          sx={{mt:4,ml:4,fontWeight:'500'}}
                                         > Task Description </Typography>
-                                        {/* <Box >
+                                        <Box >
                                             <TextEditor />
-                                        </Box> */}
+                                        </Box>
 
 
                                         <Box mt={4} ml={4}>

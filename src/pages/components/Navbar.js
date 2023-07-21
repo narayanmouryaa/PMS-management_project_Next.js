@@ -12,6 +12,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
+import { Typography } from "@mui/material";
 // import  UseMediaQuery from "@mui/material";
 
 
@@ -30,7 +31,8 @@ const ColorButton = () => {
           sx={{color: "black",ml:20 }}
         >
           <ListIcon />
-          List view
+          <Typography sx={{fontSize:'13px',ml:1,fontWeight:'600'}}>List View</Typography>
+          
         </Button>
       </Link>
 
@@ -39,7 +41,8 @@ const ColorButton = () => {
           onClick={handleClick}
           sx={{ backgroundColor, color: "black" }}
         >
-          <ViewQuiltIcon /> Grid view
+          <ViewQuiltIcon />  
+          <Typography  sx={{fontSize:'13px',ml:1,fontWeight:'600'}}>Grid View</Typography>
         </Button>
       </Link>
     </>
