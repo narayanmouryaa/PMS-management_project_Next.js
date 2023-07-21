@@ -1,3 +1,4 @@
+
 import SignIn from "@/pages/auth/SignIn";
 import React from "react";
 import { ToastContainer } from "react-toastify";
@@ -11,12 +12,13 @@ import { ToastContainer } from "react-toastify";
 // const root = hydrateRoot(domNode, reactNode);
 
 
+
 const index = () => {
   return (
     <div>
-      {/* <ReduxStpreProvider> */}
+      
         <SignIn />
-      {/* </ReduxStpreProvider> */}
+      
     </div>
   );
 };

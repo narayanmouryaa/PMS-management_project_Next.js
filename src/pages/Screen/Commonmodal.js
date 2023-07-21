@@ -121,7 +121,7 @@ const CommonModal = ({ open, handleClose }) => {
   const [activeStatus, setActiveStatus] = useState("");
   const [comapleteStatus, setComapleteStatus] = useState("");
   const [closedStatus, setClosedStatus] = useState("");
-  console.log(spaceName, "dsjndjksnd");
+  // console.log(spaceName, "dsjndjksnd");
   const handleSelectChange = (event) => {
     const selectedValues = Array.from(
       event.target.userName,
@@ -191,7 +191,7 @@ const CommonModal = ({ open, handleClose }) => {
       data,
       config
     );
-    console.log(apiData, "submitdata");
+    // console.log(apiData, "submitdata");
   };
   const [inputValue, setInputValue] = useState("");
 
@@ -206,7 +206,7 @@ const CommonModal = ({ open, handleClose }) => {
     }
   };
 
-  console.log(inputValue, "inputValue.........");
+  // console.log(inputValue, "inputValue.........");
 
   // file data store
   const handleFileChange = (e) => {
@@ -223,7 +223,7 @@ const CommonModal = ({ open, handleClose }) => {
       reader.readAsText(file);
     }
   };
-  console.log(fileData,"datafile............")
+  // console.log(fileData,"datafile............")
   return (
     <>
       <Grid container spacing={2}>

@@ -98,8 +98,8 @@ const SignIn = () => {
             onChange={handleOnChange}
           />
           <Box style={{ display: "flex" }}>
-            <Button style={{ color: "black", textTransform: "none" }}>
-              <Link href="/auth/ForgotPassword">Forgot Password?</Link>
+            <Button>
+              <Link style={{color:'black',textDecoration:'none'}} href="/auth/ForgotPassword">Forgot Password?</Link>
             </Button>
             <Box>
               <Button style={{ color: "black", textTransform: "none" }}>
@@ -120,11 +120,17 @@ const SignIn = () => {
             fullWidth
           >
             Sign In
+            <Link href="/Home" style={{ color: 'white', textDecoration:'none'}}>
+              Sign In
+            </Link>
           </Button>
 
           {/* <Button style={{color:'white'}}>               
             
               </Button>   */}
+
+
+
         </form>
       </Card>
     </div>
