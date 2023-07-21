@@ -1,13 +1,15 @@
 import dynamic from 'next/dynamic';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
-let ReactQuill;
-if (typeof document !== "undefined") {
-  ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-}
+// let ReactQuill;
+// if (typeof document !== "undefined") {
+//   ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+// }
+
 import 'react-quill/dist/quill.snow.css';
 
 const TextEditor = () => {
+  const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
   const [content, setContent] = useState('');
 
   const handleChange = (value) => {
