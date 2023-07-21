@@ -3,7 +3,7 @@ import React from "react";
 const Avatar = ({ name, SpaceColoCode, height, width }) => {
   // Extract the first letter from the name
   const firstLetter = name.charAt(0).toUpperCase();
-  console.log(SpaceColoCode, "ColorCode............");
+  // console.log(SpaceColoCode, "ColorCode............");
 
 // Generate a random background color for the avata
 //   const getRandomColor = () => {
