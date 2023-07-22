@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TextField, Button, Card, Box } from "@mui/material";
-// import Nav from "react-bootstrap/Nav";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -8,6 +7,8 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styles from "../../styles/Home.module.css";
+// import { size } from '../assets/theme/theme'
 
 const SignIn = () => {
   const navigate = useRouter();
@@ -37,7 +38,6 @@ const SignIn = () => {
       localStorage.setItem("Userlogintoken", api.data.token);
       setCookie("Userlogintoken", api.data.token);
       toast.success(api.data.message);
-      alert(api.data.message);
       console.log(api.data.message);
       navigate.push("/Home");
     } else {
@@ -50,7 +50,6 @@ const SignIn = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 500,
     bgcolor: "background.paper",
     borderRadius: "10px",
     boxShadow: 8,
@@ -68,14 +67,14 @@ const SignIn = () => {
         style={{
           textAlign: "center",
           fontWeight: "600",
-          fontSize: "15px",
           marginTop: "40px",
+          fontSize: "16px",
         }}
       >
         Login To Continue
       </h5>
 
-      <Card sx={style}>
+      <Card sx={style} className={styles.container}>
         <form onSubmit={handleSubmit}>
           <TextField
             label="Email Address"
@@ -99,7 +98,12 @@ const SignIn = () => {
           />
           <Box style={{ display: "flex" }}>
             <Button>
-              <Link style={{color:'black',textDecoration:'none'}} href="/auth/ForgotPassword">Forgot Password?</Link>
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                href="/auth/ForgotPassword"
+              >
+                Forgot Password?
+              </Link>
             </Button>
             <Box>
               <Button style={{ color: "black", textTransform: "none" }}>
@@ -120,17 +124,11 @@ const SignIn = () => {
             fullWidth
           >
             Sign In
-            <Link href="/Home" style={{ color: 'white', textDecoration:'none'}}>
-              Sign In
-            </Link>
           </Button>
 
           {/* <Button style={{color:'white'}}>               
             
               </Button>   */}
-
-
-
         </form>
       </Card>
     </div>

@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import styles from "../../styles/Home.module.css";
 import {
   // userFetchThunk,
   userSignUpThunk,
@@ -76,13 +77,13 @@ export default function SignUp() {
             top: "40%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 500,
             bgcolor: "background.paper",
             borderRadius: "10px",
             boxShadow: 8,
             p: 4,
             mt: 4,
           }}
+          className={styles.container}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />

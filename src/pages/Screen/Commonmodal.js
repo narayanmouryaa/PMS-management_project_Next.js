@@ -24,7 +24,7 @@ import SquareIcon from "@mui/icons-material/Square";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
-import Avatar from "../components/Avatar";
+import Avatar from "../../store/Avatar";
 import axios from 'axios'
 
 const style = {
@@ -37,6 +37,7 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 8,
+  
 };
 
 const top10Films = [
@@ -139,8 +140,8 @@ const CommonModal = ({ open, handleClose }) => {
   // // });
   // setFileData(null);
 
-  console.log(formData, "............");
-  console.log(fileData, "FileData............");
+  // console.log(formData, "............");
+  // console.log(fileData, "FileData............");
 
   // get Color Get
   const [color, setColor] = useState({
@@ -177,7 +178,7 @@ const CommonModal = ({ open, handleClose }) => {
     comapleteStatus,
     closedStatus,
   ];
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -270,7 +271,8 @@ const CommonModal = ({ open, handleClose }) => {
                           type="text"
                           value={spaceName}
                           onChange={handleInputChange}
-                          style={{ width: "400px" }}
+                          // style={{ width: "400px" }}
+                          sx={{ width: 500 }}
                           startAdornment={
                             <InputAdornment position="start"></InputAdornment>
                           }
@@ -290,7 +292,8 @@ const CommonModal = ({ open, handleClose }) => {
                           id="input-with-icon-adornment"
                           placeholder="Enter Space Color Code"
                           type="color"
-                          style={{ width: "400px" }}
+                          // style={{ width: "400px" }}
+                          sx={{ width: 500 }}
                           name="SpaceColorCode"
                           value={SpaceColorCode}
                           onChange={(e) => setSpaceColorCode(e.target.value)}
@@ -313,7 +316,8 @@ const CommonModal = ({ open, handleClose }) => {
                           placeholder="Upload Space icon"
                           type="file"
                           onChange={handleFileChange}
-                          style={{ width: "400px", paddingBottom: "10px" }}
+                          style={{ paddingBottom: "10px" }}
+                          sx={{ width: 500 }}
                           startAdornment={
                             <InputAdornment position="start"></InputAdornment>
                           }
@@ -332,7 +336,8 @@ const CommonModal = ({ open, handleClose }) => {
                           id="input-with-icon-adornment"
                           placeholder="Select User Name"
                           type="text"
-                          style={{ width: "550px", marginTop: "50px" }}
+                          style={{ marginTop: "50px" }}
+                          sx={{ width: 500 }}
                           startAdornment={
                             <InputAdornment position="start">
                               <Autocomplete

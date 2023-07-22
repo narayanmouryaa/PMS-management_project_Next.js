@@ -26,7 +26,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 750,
+    width:750,
     bgcolor: 'background.paper',
     borderRadius: "10px",
     boxShadow: 24,
@@ -111,7 +111,6 @@ export default function CustomizedDialogs({ open, setOpen }) {
                     <Container style={{ display: 'flex', justifyContent: 'center' }} >
                         <Card sx={style} >
                             <CardContent>
-
                                 <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleClose}>
                                     Create List
                                 </BootstrapDialogTitle>
@@ -125,6 +124,7 @@ export default function CustomizedDialogs({ open, setOpen }) {
                                         </InputLabel>
                                         <Input
                                             style={{ width: '420px' }}
+                                            sx={{width:600}}
                                             id="input-with-icon-adornment"
                                             placeholder="Enter List Name"
                                             type='text'

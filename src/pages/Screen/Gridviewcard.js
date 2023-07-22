@@ -37,9 +37,11 @@ const GridviewCard = () => {
 
         <Card sx={{borderRadius:2,mt:2}}  >
             <CardContent>
-                <Typography sx={{ fontSize: 16, textAlign: 'start',textWrap:'wrap' }} gutterBottom>
-                    As a translator,I want integrate Crowdin webhook to notify translators about changed strings
+                <Typography sx={{ fontSize: 14, textAlign: 'start',textWrap:'wrap' }} gutterBottom>
+                    As a translator,I want integrate Crowdin webhook to notify
                 </Typography>
+
+
 
                 <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <Chip style={{ backgroundColor: 'yellow', fontSize: '12px', fontWeight: '600', marginBottom: '5px' }} label="Refactoring" />
