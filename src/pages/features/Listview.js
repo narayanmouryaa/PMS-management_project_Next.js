@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import NavbarFixed from "../components/Navbar"
-import FixedSidenav from '../components/Fixedsidenav'
-import MiniDrawer from '../components/Minidrawer'
+// import NavbarFixed from "../components/Navbar"
+// import FixedSidenav from '../components/Fixedsidenav'
+// import MiniDrawer from '../components/Minidrawer'
 import Link from "next/link";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -78,11 +78,11 @@ function Listview() {
       </Box> */}
 
       <Box sx={{ display: 'flex', position: 'fixed' }}>
-        <NavbarFixed />
+        {/* <NavbarFixed /> */}
 
         <Box sx={{ width: '100vw', display: 'flex' }}>
-          <FixedSidenav />
-          <MiniDrawer />
+          {/* <FixedSidenav /> */}
+          {/* <MiniDrawer /> */}
 
           <Box className="scrollbar" sx={{ ml: 8, width: '80vw', height: '100%', display: 'flex', overflowX: 'auto' }} >
 

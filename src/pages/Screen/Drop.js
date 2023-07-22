@@ -6,7 +6,7 @@ import React, { useState } from 'react';
  import { Divider, Menu, MenuItem } from '@mui/material';
 // import '../Assets/style/style.css';
 
-const FlagIconDropdown = () => {
+const FlagIconDropdown = (props) => {
   const [selectedFlag, setSelectedFlag] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   
@@ -23,7 +23,7 @@ const FlagIconDropdown = () => {
 
   return (
     <div className="flag-icon-dropdown" style={{position:'relative',display:'inline-block'}}>
-      <button className="flag-icon-button" style={{display:'flex',alignItems:'center',justifyContent:'centeer',height:'30px',backgroundColor:'transparent',border:'none',cursor:'pointer'}} onClick={(el) => setAnchorEl(el.currentTarget)}>
+      <button className="flag-icon-button" style={{display:'flex',alignItems:'center',justifyContent:'center',height:'30px',backgroundColor:'transparent',border:'none',cursor:'pointer'}} onClick={(el) => setAnchorEl(el.currentTarget)}>
         {selectedFlag ? (
           <>
           <span className="selected-flag">{selectedFlag}</span>

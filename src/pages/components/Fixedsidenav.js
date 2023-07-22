@@ -14,7 +14,7 @@ const SidenavContainer = styled(Box)`
   top: 0;
   left: 0;
   bottom: 0;
-  width: 64px;
+  width: 54px;
   background-color: #f5f5f5;
 `;
 

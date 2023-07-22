@@ -15,10 +15,7 @@ import { Typography, Button } from '@mui/material';
 import BasicMenu from '../Screen/Selectoption';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import FolderCopyOutlinedIcon from '@mui/icons-material/FolderCopyOutlined';
-import {
-    ListItemIcon,
-    Collapse,
-} from '@mui/material';
+import {ListItemIcon,  Collapse,} from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CommonModal from '../Screen/Commonmodal';
@@ -27,7 +24,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 
-const drawerWidth = 300;
+
+const drawerWidth = 250;
 
 const Root = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -64,16 +62,19 @@ const NestedList = ({ primary, list }) => {
                             </ListItemIcon>
 
                             <ListItemText primary={list} />
+                            <>
                             <BasicMenu />
+                            
+                            </>
                         </ListItem>
                     ))}
 
                     {[' List 1', "List 2", "List 3", "List 4", "List 5"].map((text, index) => (
-                        <ListItem style={{ height: '35px' }} key={index} disablePadding>
+                        <ListItem style={{ height: '35px',width:'250px' }} key={index} disablePadding>
                             <ListItemIcon>
                                 <FormatListBulletedIcon sx={{ml:2}} />
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText  primary={text} />
                             <BasicMenu />
                         </ListItem>
                     ))}
@@ -114,7 +115,7 @@ export default function MiniDrawer() {
                 {!open ? <button style={{
                     position: "absolute",
                     top: "68px",
-                    left: "45px",
+                    left: "38px",
                     zIndex: 2500,
                     color: "white",
                     border: 'none',
@@ -124,7 +125,7 @@ export default function MiniDrawer() {
                 }}
                     onClick={handleDrawerOpen}><ChevronRightIcon />  </button> : null}
 
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex'}}>
                     <CssBaseline />
                     <Drawer
                         className='drawer_container'
@@ -134,11 +135,12 @@ export default function MiniDrawer() {
                             '& .MuiDrawer-paper': {
                                 width: drawerWidth,
                                 boxSizing: 'border-box',
-                                left: '38px',
+                                left: '58px',
                                 top: '60px',
                                 position: 'relative',
                                 display: 'flex',
-                                height: '100vh',
+                                height: '91vh',
+                                // width:'18vw'
                             },
                         }}
                         variant="persistent"
@@ -146,7 +148,7 @@ export default function MiniDrawer() {
                         open={open}
                     >
                         <DrawerHeader>
-                            <Typography style={{ display: 'flex', marginRight: "150px", color: 'grey' }}>Favorites</Typography>
+                            <Typography style={{ display: 'flex', marginRight: "100px", color: 'grey' ,fontSize:'15px'}}>Favorites</Typography>
 
                             <IconButton onClick={() => setOpen(!open)}>
                                 {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ backgroundColor: 'blue', color: 'white', position: 'absolute', bottom: "12px",borderRadius:'50%' }} /> : <ChevronRightIcon />}
@@ -155,13 +157,14 @@ export default function MiniDrawer() {
                         <Divider />
                         <List>
                             {['Spaces'].map((text, index) => (
-                                <ListItem style={{ paddingLeft: '40px', color: 'grey' }} key={text} disablePadding>
+                                <ListItem style={{marginLeft:'30px', color: 'grey' }} key={text} disablePadding>
                                     <ListItemButton>
                                         <ListItemText primary={text} />
                                     </ListItemButton>
                                     
-                                    <Button style={{ marginLeft: '155px' }} onClick={() => handleClose1(true)}> <AddIcon style={{ color: 'black' }} /></Button>
-                                    <CommonModal open={openModal1} handleClose={() => {
+                                    <Button onClick={() => handleClose1(true)} sx={{ml:14}}> <AddIcon sx={{ color: 'black'}} /></Button>
+                                    <CommonModal 
+                                     open={openModal1} handleClose={() => {
                                         handleClose1(false);
                                         
                                     }} />
@@ -171,9 +174,9 @@ export default function MiniDrawer() {
 
 
                         <Divider />
-                        <List style={{ marginLeft: '30px' }}>
+                        <List >
 
-                            <NestedList primary="Space test 1" style={{ fontSize: "40px", fontWeight: '600' }} items={['list 1']} />
+                            <NestedList primary="Space test 1" style={{ fontSize: "30px", fontWeight: '600' }} items={['list 1']} />
                         </List>
 
                         <Divider />

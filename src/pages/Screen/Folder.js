@@ -21,6 +21,7 @@ import SquareIcon from '@mui/icons-material/Square';
 import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
+import ParentModal from './ParentModal';
 
 
 const style = {
@@ -142,6 +143,7 @@ export default function Folder({ open, setOpen }) {
                                 <Grid container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
                                     <Grid item xs={10} >
                                         <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px' }}>
+                                            <ParentModal/>
                                             <Typography style={{ color: "grey" }}>
                                                 Avatar
                                             </Typography>

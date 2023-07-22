@@ -26,6 +26,16 @@ import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import Avatar from "../../store/Avatar";
 import axios from 'axios'
+import MultipleSelectCheckmarks from "@/store/multipleselectuser";
+
+
+import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+import ListItemText from '@mui/material/ListItemText';
+import Select from '@mui/material/Select';
+// import Checkbox from '@mui/material/Checkbox';
 
 const style = {
   position: "absolute",
@@ -37,7 +47,7 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 8,
-  
+
 };
 
 const top10Films = [
@@ -59,6 +69,21 @@ const top10Films = [
     year: 2001,
   },
 ];
+
+
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
+
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -122,6 +147,7 @@ const CommonModal = ({ open, handleClose }) => {
   const [activeStatus, setActiveStatus] = useState("");
   const [comapleteStatus, setComapleteStatus] = useState("");
   const [closedStatus, setClosedStatus] = useState("");
+  const [personName, setPersonName] = React.useState([]);
   // console.log(spaceName, "dsjndjksnd");
   const handleSelectChange = (event) => {
     const selectedValues = Array.from(
@@ -192,7 +218,7 @@ const CommonModal = ({ open, handleClose }) => {
       data,
       config
     );
-    console.log(apiData, "submitdata");
+    // console.log(apiData, "submitdata");
   };
   const [inputValue, setInputValue] = useState("");
 
@@ -224,6 +250,24 @@ const CommonModal = ({ open, handleClose }) => {
       reader.readAsText(file);
     }
   };
+  // const names = [
+  //   'Oliver Hansen',
+  //   'Van Henry',
+  //   'April Tucker',
+  //   'Ralph Hubbard',
+  //   'Omar Alexander',
+  //   'Carlos Abbott',
+  //   'Miriam Wagner',
+  //   'Bradley Wilkerson',
+  //   'Virginia Andrews',
+  //   'Kelly Snyder',
+  //   "narayan Mouray",
+  //   "kanahaiya singh",
+  // ];
+
+
+
+
   // console.log(fileData,"datafile............")
   return (
     <>
@@ -344,15 +388,38 @@ const CommonModal = ({ open, handleClose }) => {
                                 disablePortal
                                 id="combo-box-demo"
                                 options={top10Films}
-                                sx={{ width: 200, height: 80 }}
-                                renderInput={(params) => (
-                                  <TextField {...params} label="Movie" />
-                                )}
+                                sx={{ width: 250, height: 80 }}
+                                  renderInput={(params) => (
+                                 <TextField {...params} label="Movie" />
+                                  )}
                               />
                             </InputAdornment>
                           }
-                        />
+                          
+                           />
                       </FormControl>
+
+
+                      {/* <FormControl sx={{ m: 1, width: 300 }}>
+                        <InputLabel id="demo-multiple-checkbox-label">Select </InputLabel>
+                        <Select
+                          labelId="demo-multiple-checkbox-label"
+                          id="demo-multiple-checkbox"
+                          multiple
+                          value={personName}
+                          onChange={handleChange}
+                          input={<OutlinedInput label="Tag" />}
+                          renderValue={(selected) => selected.join(', ')}
+                          MenuProps={MenuProps}
+                        >
+                          {names.map((name) => (
+                            <MenuItem key={name} value={name}>
+                              <Checkbox checked={personName.indexOf(name) > -1} />
+                              <ListItemText primary={name} />
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl> */}
                     </Box>
                   </Box>
                   <Box style={{ display: "flex" }}>
