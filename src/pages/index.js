@@ -1,26 +1,12 @@
-
-import SignIn from "@/pages/auth/SignIn";
-import React from "react";
-import { ToastContainer } from "react-toastify";
-
-// import ReduxStpreProvider from "../../store/provider";
-
-
-// import { hydrateRoot } from 'react-dom/client';
-
-// const domNode = document.getElementById('root');
-// const root = hydrateRoot(domNode, reactNode);
-
-
+import React from 'react'
+import SignIn from './auth/SignIn'
 
 const index = () => {
   return (
     <div>
-      
-        <SignIn />
-      
+      <SignIn/>
     </div>
-  );
-};
+  )
+}
 
-export default index;
+export default index

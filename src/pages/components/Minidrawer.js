@@ -21,8 +21,10 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import CommonModal from "../Screen/Commonmodal";
 import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
+// import zIndex from '@mui/material/styles/zIndex';
+import { size, weight } from "../assets/theme/theme";
 
-const drawerWidth = 300;
+const drawerWidth = 280;
 
 const Root = styled("div")(({ theme }) => ({
   display: "flex",
@@ -110,8 +112,8 @@ export default function MiniDrawer() {
             style={{
               position: "absolute",
               top: "68px",
-              left: "45px",
-              zIndex: 2500,
+              left: "30px",
+              zIndex: 504,
               color: "white",
               border: "none",
               backgroundColor: "blue",
@@ -138,6 +140,8 @@ export default function MiniDrawer() {
                 position: "relative",
                 display: "flex",
                 height: "100vh",
+                position: "fixed",
+                zIndex: 200,
               },
             }}
             variant="persistent"
@@ -146,7 +150,13 @@ export default function MiniDrawer() {
           >
             <DrawerHeader>
               <Typography
-                style={{ display: "flex", marginRight: "150px", color: "grey" }}
+                style={{
+                  display: "flex",
+                  marginRight: "150px",
+                  color: "grey",
+                  fontSize: size.font13,
+                  fontWeight: weight.low,
+                }}
               >
                 Favorites
               </Typography>
@@ -171,7 +181,12 @@ export default function MiniDrawer() {
             <List>
               {["Spaces"].map((text, index) => (
                 <ListItem
-                  style={{ paddingLeft: "40px", color: "grey" }}
+                  style={{
+                    paddingLeft: "40px",
+                    color: "grey",
+                    fontSize: size.font13,
+                    fontWeight: weight.low,
+                  }}
                   key={text}
                   disablePadding
                 >
@@ -198,7 +213,11 @@ export default function MiniDrawer() {
 
             <Divider />
             <List style={{ marginLeft: "30px" }}>
-              <NestedList primary="Space test 1" style={{ fontSize: "40px", fontWeight: '600' }} items={['list 1']} />
+              <NestedList
+                primary="Space test 1"
+                style={{ fontSize:size.font13,fontWeight:weight.bold }}
+                items={["list 1"]}
+              />
             </List>
 
             <Divider />

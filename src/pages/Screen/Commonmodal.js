@@ -14,7 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import { TextField } from "@mui/material";
+import { Checkbox, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Grid } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -25,7 +25,17 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import Avatar from "./Avatar";
-import axios from 'axios'
+import axios from "axios";
+// import MultipleSelectCheckmarks from "@/store/multipleselectuser";
+
+import OutlinedInput from "@mui/material/OutlinedInput";
+// import InputLabel from '@mui/material/InputLabel';
+import MenuItem from "@mui/material/MenuItem";
+// import FormControl from '@mui/material/FormControl';
+import ListItemText from "@mui/material/ListItemText";
+import Select from "@mui/material/Select";
+import { size, weight } from "../assets/theme/theme";
+// import Checkbox from '@mui/material/Checkbox';
 
 const style = {
   position: "absolute",
@@ -37,28 +47,39 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 8,
-  
 };
 
-const top10Films = [
-  { label: "The Shawshank Redemption", year: 1994 },
-  { label: "The Godfather", year: 1972 },
-  { label: "The Godfather: Part II", year: 1974 },
-  { label: "The Dark Knight", year: 2008 },
-  { label: "12 Angry Men", year: 1957 },
-  { label: "Schindler's List", year: 1993 },
-  { label: "Pulp Fiction", year: 1994 },
-  {
-    label: "The Lord of the Rings: The Return of the King",
-    year: 2003,
+// const top10Films = [
+//   { label: "The Shawshank Redemption", year: 1994 },
+//   { label: "The Godfather", year: 1972 },
+//   { label: "The Godfather: Part II", year: 1974 },
+//   { label: "The Dark Knight", year: 2008 },
+//   { label: "12 Angry Men", year: 1957 },
+//   { label: "Schindler's List", year: 1993 },
+//   { label: "Pulp Fiction", year: 1994 },
+//   {
+//     label: "The Lord of the Rings: The Return of the King",
+//     year: 2003,
+//   },
+//   { label: "The Good, the Bad and the Ugly", year: 1966 },
+//   { label: "Fight Club", year: 1999 },
+//   {
+//     label: "The Lord of the Rings: The Fellowship of the Ring",
+//     year: 2001,
+//   },
+// ];
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
   },
-  { label: "The Good, the Bad and the Ugly", year: 1966 },
-  { label: "Fight Club", year: 1999 },
-  {
-    label: "The Lord of the Rings: The Fellowship of the Ring",
-    year: 2001,
-  },
-];
+};
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -104,45 +125,37 @@ const CommonModal = ({ open, handleClose }) => {
 
   const [checked, setChecked] = React.useState(true);
 
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
+  // const [UserNameSelect, setUserNameSelect] = React.useState([]);
+
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    const {
+      target: { value },
+    } = event;
+    setUserNameSelect(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
   };
 
   //    const [openModal1,handleClose1] = useState(false);
 
   const [formData, setFormData] = useState({
     SpaceName: "",
-    UserName: "",
+    UserNameSelect: "",
     ActiveStatus: "",
     ComapleteStatus: "",
     closedStatus: "",
   });
   const [spaceName, setSpaceName] = useState("");
-  const [userName, setUserName] = useState([]);
   const [activeStatus, setActiveStatus] = useState("");
   const [comapleteStatus, setComapleteStatus] = useState("");
   const [closedStatus, setClosedStatus] = useState("");
-  // console.log(spaceName, "dsjndjksnd");
-  const handleSelectChange = (event) => {
-    const selectedValues = Array.from(
-      event.target.userName,
-      (option) => option.value
-    );
-    setUserName(selectedValues);
-  };
-
-  const [fileData, setFileData] = useState(null);
-
-  // setFormData({
-  //   SpaceName: "",
-  //   SpaceColoCode: "",
-  //   UserName: "",
-  // // });
-  // setFileData(null);
-
-  // console.log(formData, "............");
-  // console.log(fileData, "FileData............");
-
+  const [UserNameSelect, setUserNameSelect] = React.useState([]);
+  console.log(UserNameSelect, "UserNameSelect...........");
   // get Color Get
   const [color, setColor] = useState({
     SpaceColor: "",
@@ -152,10 +165,11 @@ const CommonModal = ({ open, handleClose }) => {
   });
 
   // const [colorCode, setColorCode] = useState("");
-  const [SpaceColorCode, setSpaceColorCode] = useState("");
-  const [ActiveStatusColorCode, setActiveStatusColorCode] = useState("");
-  const [ComapleteStatusColorCode, setComapleteStatusColorCode] = useState("");
-  const [ClosedStatusColorCode, setClosedStatusColorCode] = useState("");
+  const [SpaceColorCode, setSpaceColorCode] = useState("#ff0000");
+  const [ActiveStatusColorCode, setActiveStatusColorCode] = useState("#ff0000");
+  const [ComapleteStatusColorCode, setComapleteStatusColorCode] =
+    useState("#ff0000");
+  const [ClosedStatusColorCode, setClosedStatusColorCode] = useState("#ff0000");
 
   const handleInputChangeColor = (event) => {
     const colorValue = event.target.value;
@@ -179,10 +193,9 @@ const CommonModal = ({ open, handleClose }) => {
     closedStatus,
   ];
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const accessToken = localStorage.getItem("Userlogintoken")
+    const accessToken = localStorage.getItem("Userlogintoken");
     const config = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
@@ -210,21 +223,30 @@ const CommonModal = ({ open, handleClose }) => {
   // console.log(inputValue, "inputValue.........");
 
   // file data store
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+  const names = [
+    "Oliver Hansen",
+    "Van Henry",
+    "April Tucker",
+    "Ralph Hubbard",
+    "Omar Alexander",
+    "Carlos Abbott",
+    "Miriam Wagner",
+    "Bradley Wilkerson",
+    "Virginia Andrews",
+    "Kelly Snyder",
+    "narayan Mouray",
+    "kanahaiya singh",
+  ];
 
-    if (file) {
-      // Read the file content as text (or any other desired format)
-      const reader = new FileReader();
-      reader.onload = () => {
-        const fileData = reader.result;
-        // Store the file data in localStorage
-        localStorage.setItem('fileData', fileData);
-      };
-      reader.readAsText(file);
-    }
-  };
   // console.log(fileData,"datafile............")
+  const [selectedImage, setSelectedImage] = useState(null);
+  console.log(selectedImage,'selectedFile......')
+
+  // Function to handle file selection
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(URL.createObjectURL(file));
+  };
   return (
     <>
       <Grid container spacing={2}>
@@ -236,19 +258,26 @@ const CommonModal = ({ open, handleClose }) => {
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
-          style={{ zIndex: "3000" }}
+          // style={{ zIndex: "3000" }}
         >
           <Box sx={style}>
             {viewData === 1 && (
               <Box sx={style}>
                 <BootstrapDialogTitle
-                  sx={{ fontSize: 40, fontWeight: 600 }}
+                  sx={{
+                    fontSize: size.font1,
+                    fontWeight: weight.medium,
+                    marginLeft: "-22px",
+                  }}
                   id="customized-dialog-title"
                   onClose={handleClose}
                 >
                   Create New Space
                 </BootstrapDialogTitle>
-                <Typography sx={{ fontSize: 14 }} component="div">
+                <Typography
+                  sx={{ fontSize: size.font13, fontWeight: weight.medium }}
+                  component="div"
+                >
                   Clarity gives you the blocks and components you need to create{" "}
                   <br /> a truly professional website.
                 </Typography>
@@ -261,7 +290,10 @@ const CommonModal = ({ open, handleClose }) => {
                       <FormControl variant="standard">
                         <InputLabel
                           htmlFor="input-with-icon-adornment"
-                          style={{ fontWeight: "600", fontSize: "18px" }}
+                          style={{
+                            fontSize: size.font3,
+                            fontWeight: weight.medium,
+                          }}
                         >
                           Space Name
                         </InputLabel>
@@ -272,7 +304,11 @@ const CommonModal = ({ open, handleClose }) => {
                           value={spaceName}
                           onChange={handleInputChange}
                           // style={{ width: "400px" }}
-                          sx={{ width: 500 }}
+                          sx={{
+                            width: 500,
+                            fontSize: size.font3,
+                            fontWeight: weight.medium,
+                          }}
                           startAdornment={
                             <InputAdornment position="start"></InputAdornment>
                           }
@@ -284,7 +320,10 @@ const CommonModal = ({ open, handleClose }) => {
                       <FormControl variant="standard">
                         <InputLabel
                           htmlFor="input-with-icon-adornment"
-                          style={{ fontWeight: "600", fontSize: "18px" }}
+                          style={{
+                            fontSize: size.font3,
+                            fontWeight: weight.medium,
+                          }}
                         >
                           Space Color
                         </InputLabel>
@@ -307,7 +346,10 @@ const CommonModal = ({ open, handleClose }) => {
                       <FormControl variant="standard">
                         <InputLabel
                           htmlFor="input-with-icon-adornment"
-                          style={{ fontWeight: "600", fontSize: "18px" }}
+                          style={{
+                            fontSize: size.font3,
+                            fontWeight: weight.medium,
+                          }}
                         >
                           Space Icon
                         </InputLabel>
@@ -315,7 +357,7 @@ const CommonModal = ({ open, handleClose }) => {
                           id="input-with-icon-adornment"
                           placeholder="Upload Space icon"
                           type="file"
-                          onChange={handleFileChange}
+                          onChange={handleImageChange}
                           style={{ paddingBottom: "10px" }}
                           sx={{ width: 500 }}
                           startAdornment={
@@ -324,8 +366,8 @@ const CommonModal = ({ open, handleClose }) => {
                         />
                       </FormControl>
                     </Box>
-                    <Box mt={3}>
-                      <FormControl variant="standard" sx={{ minWidth: 200 }}>
+                    <Box>
+                      {/* <FormControl variant="standard" sx={{ minWidth: 200 }}>
                         <InputLabel
                           htmlFor="input-with-icon-adornment"
                           style={{ fontWeight: "600", fontSize: "18px" }}
@@ -344,14 +386,44 @@ const CommonModal = ({ open, handleClose }) => {
                                 disablePortal
                                 id="combo-box-demo"
                                 options={top10Films}
-                                sx={{ width: 200, height: 80 }}
-                                renderInput={(params) => (
-                                  <TextField {...params} label="Movie" />
-                                )}
+                                sx={{ width: 250, height: 80 }}
+                                  renderInput={(params) => (
+                                 <TextField {...params} label="Movie" />
+                                  )}
                               />
                             </InputAdornment>
                           }
-                        />
+                          
+                           />
+                      </FormControl> */}
+
+                      <FormControl sx={{ m: 1 }}>
+                        <InputLabel
+                          sx={{ mt: 2 }}
+                          id="demo-multiple-checkbox-label"
+                        >
+                          Select{" "}
+                        </InputLabel>
+                        <Select
+                          labelId="demo-multiple-checkbox-label"
+                          id="demo-multiple-checkbox"
+                          multiple
+                          value={UserNameSelect}
+                          onChange={handleChange}
+                          input={<OutlinedInput label="Tag" />}
+                          renderValue={(selected) => selected.join(", ")}
+                          MenuProps={MenuProps}
+                          sx={{ width: "500px", mt: 2 }}
+                        >
+                          {names.map((name) => (
+                            <MenuItem key={name} value={name}>
+                              <Checkbox
+                                checked={UserNameSelect.indexOf(name) > -1}
+                              />
+                              <ListItemText primary={name} />
+                            </MenuItem>
+                          ))}
+                        </Select>
                       </FormControl>
                     </Box>
                   </Box>
@@ -381,7 +453,9 @@ const CommonModal = ({ open, handleClose }) => {
             {viewData === 2 && (
               <Box sx={style}>
                 <Box>
-                  <Typography sx={{ fontSize: 35, fontWeight: 600 }}>
+                  <Typography
+                    sx={{ fontSize: size.font1, fontWeight: weight.medium }}
+                  >
                     <Button onClick={() => setViewData(viewData - 1)}>
                       {" "}
                       <ArrowBackIosIcon style={{ color: "black" }} />
@@ -390,7 +464,11 @@ const CommonModal = ({ open, handleClose }) => {
                   </Typography>
 
                   <Typography
-                    sx={{ marginTop: "20px", fontSize: "20px" }}
+                    sx={{
+                      marginTop: "20px",
+                      fontSize: size.font3,
+                      fontWeight: weight.medium,
+                    }}
                     gutterBottom
                   >
                     Active Status
@@ -398,7 +476,15 @@ const CommonModal = ({ open, handleClose }) => {
 
                   <Grid container spacing={2}>
                     <Grid item xs={7} style={{ label: "text" }}>
-                      <label style={{ marginBottom: "5px" }}>Status Name</label>
+                      <label
+                        style={{
+                          marginBottom: "5px",
+                          fontSize: size.font13,
+                          fontWeight: weight.low,
+                        }}
+                      >
+                        Status Name
+                      </label>
                       <TextField
                         fullWidth
                         name="ActiveStatus"
@@ -408,7 +494,13 @@ const CommonModal = ({ open, handleClose }) => {
                     </Grid>
 
                     <Grid item xs={4}>
-                      <label style={{ marginBottom: "5px" }}>
+                      <label
+                        style={{
+                          marginBottom: "5px",
+                          fontSize: size.font13,
+                          fontWeight: weight.low,
+                        }}
+                      >
                         Status Color
                       </label>
                       <TextField
@@ -427,7 +519,11 @@ const CommonModal = ({ open, handleClose }) => {
                   </Grid>
 
                   <Typography
-                    sx={{ marginTop: "20px", fontSize: "20px" }}
+                    sx={{
+                      marginTop: "20px",
+                      fontSize: size.font4,
+                      fontWeight: weight.medium,
+                    }}
                     gutterBottom
                   >
                     Complete Status
@@ -435,7 +531,15 @@ const CommonModal = ({ open, handleClose }) => {
 
                   <Grid container spacing={2}>
                     <Grid item xs={7} style={{ label: "text" }}>
-                      <label style={{ marginBottom: "5px" }}>Status Name</label>
+                      <label
+                        style={{
+                          marginBottom: "5px",
+                          fontSize: size.font13,
+                          fontWeight: weight.low,
+                        }}
+                      >
+                        Status Name
+                      </label>
                       <TextField
                         fullWidth
                         style={{ height: "20px" }}
@@ -446,7 +550,13 @@ const CommonModal = ({ open, handleClose }) => {
                     </Grid>
 
                     <Grid item xs={4}>
-                      <label style={{ marginBottom: "5px" }}>
+                      <label
+                        style={{
+                          marginBottom: "5px",
+                          fontSize: size.font13,
+                          fontWeight: weight.low,
+                        }}
+                      >
                         Status Color
                       </label>
                       <TextField
@@ -465,7 +575,11 @@ const CommonModal = ({ open, handleClose }) => {
                   </Grid>
 
                   <Typography
-                    sx={{ marginTop: "20px", fontSize: "20px" }}
+                    sx={{
+                      marginTop: "20px",
+                      fontSize: size.font4,
+                      fontWeight: weight.medium,
+                    }}
                     gutterBottom
                   >
                     Closed Status
@@ -473,7 +587,15 @@ const CommonModal = ({ open, handleClose }) => {
 
                   <Grid container spacing={2} sx={{ marginBottom: "40px" }}>
                     <Grid item xs={7} style={{ label: "text" }}>
-                      <label style={{ marginBottom: "5px" }}>Status Name</label>
+                      <label
+                        style={{
+                          marginBottom: "5px",
+                          fontSize: size.font13,
+                          fontWeight: weight.low,
+                        }}
+                      >
+                        Status Name
+                      </label>
                       <TextField
                         fullWidth
                         name="closedStatus"
@@ -522,9 +644,21 @@ const CommonModal = ({ open, handleClose }) => {
                     sx={{ display: "flex", fontSize: 35, fontWeight: 600 }}
                   >
                     <Button onClick={() => setViewData(viewData - 1)}>
-                      <ArrowBackIosIcon style={{ color: "black" }} />
+                      <ArrowBackIosIcon
+                        style={{
+                          color: "black",
+                        }}
+                      />
                     </Button>
-                    Default Settings for Views
+                    <span
+                      style={{
+                        fontSize: size.font1,
+                        fontWeight: weight.medium,
+                      }}
+                    >
+                      {" "}
+                      Default Settings for Views
+                    </span>
                   </Typography>
 
                   <Grid
@@ -619,7 +753,15 @@ const CommonModal = ({ open, handleClose }) => {
                     <Button onClick={() => setViewData(viewData - 1)}>
                       <ArrowBackIosIcon style={{ color: "black" }} />
                     </Button>
-                    Default Settings for Views
+                    <span
+                      style={{
+                        fontSize: size.font1,
+                        fontWeight: weight.medium,
+                      }}
+                    >
+                      {" "}
+                      Default Settings for Views
+                    </span>
                   </Typography>
 
                   <Grid
@@ -643,7 +785,13 @@ const CommonModal = ({ open, handleClose }) => {
                           padding: "15px",
                         }}
                       >
-                        <Typography style={{ color: "grey" }}>
+                        <Typography
+                          style={{
+                            color: "grey",
+                            fontSize: size.font13,
+                            fontWeight: weight.low,
+                          }}
+                        >
                           Space Name
                         </Typography>
                         <Typography>{spaceName}</Typography>
@@ -672,7 +820,13 @@ const CommonModal = ({ open, handleClose }) => {
                           padding: "15px",
                         }}
                       >
-                        <Typography style={{ color: "grey" }}>
+                        <Typography
+                          style={{
+                            color: "grey",
+                            fontSize: size.font13,
+                            fontWeight: weight.low,
+                          }}
+                        >
                           Avatar
                         </Typography>
 
@@ -707,7 +861,13 @@ const CommonModal = ({ open, handleClose }) => {
                           padding: "15px",
                         }}
                       >
-                        <Typography style={{ color: "grey" }}>
+                        <Typography
+                          style={{
+                            color: "grey",
+                            fontSize: size.font13,
+                            fontWeight: weight.low,
+                          }}
+                        >
                           Shared with
                         </Typography>
                         <Avatar
@@ -741,7 +901,13 @@ const CommonModal = ({ open, handleClose }) => {
                           padding: "15px",
                         }}
                       >
-                        <Typography style={{ color: "grey" }}>
+                        <Typography
+                          style={{
+                            color: "grey",
+                            fontSize: size.font13,
+                            fontWeight: weight.low,
+                          }}
+                        >
                           Task statuses
                         </Typography>
 
@@ -781,7 +947,13 @@ const CommonModal = ({ open, handleClose }) => {
                           padding: "15px",
                         }}
                       >
-                        <Typography style={{ color: "grey" }}>
+                        <Typography
+                          style={{
+                            color: "grey",
+                            fontSize: size.font13,
+                            fontWeight: weight.low,
+                          }}
+                        >
                           Default setting for views
                         </Typography>
                         <FormatListBulletedIcon />

@@ -21,9 +21,21 @@
 // };
 
 export const size = {
-   font6 : '13.5px',
-  // font8: metrics.screenWidth * (8 / 400),
-  // font10: metrics.screenWidth * (10 / 400),
+
+  font1: 'large',
+  font2: 'larger',
+  font3: 'medium',
+  font4: 'small',
+  font5: 'smaller',
+  font6: 'x-large',
+  font7: 'x-small',
+  font8: 'xx-large',
+  font9: ':xx-small',
+  font10: 'xx-large ',
+  font11: 'xx-large ',
+  font13: '13.5px',
+  font14: '14px',
+  font15: '14.5px',
   // font12: metrics.screenWidth * (12 / 400),
   // font14: metrics.screenWidth * (14 / 400),
   // font16: metrics.screenWidth * (16 / 400),

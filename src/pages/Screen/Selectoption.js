@@ -58,8 +58,8 @@ export default function BasicMenu() {
         {/* <Divider /> */}
 
         <Nav.Link href="#" onClick={() => setOpenFolder(true)}>
-          <MenuItem onClick={handleClose} style={{ width: '200px' }}>
-            <FolderCopyIcon style={{ marginRight: '20px' }} />
+          <MenuItem onClick={handleClose} style={{ width: '100px' }}>
+            <FolderCopyIcon  />
             Folder
           </MenuItem>
         </Nav.Link>

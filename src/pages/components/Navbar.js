@@ -55,12 +55,11 @@ export default function NavbarFixed() {
       <Navbar
         bg="light"
         expand="lg"
-        style={{ position: "fixed", width:'100%', "zIndex": "2200" }}
+        style={{ position: "fixed", width:'100%', "zIndex": "503" }}
       >
         <Container fluid style={{ padding: "0px 36px 0px 8px" }}>
           <AppsIcon sx={{ml:2}}/>
           <Navbar.Brand href="#" style={{fontWeight:600,marginLeft:'10px'}}     >
-            
             P M S
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
