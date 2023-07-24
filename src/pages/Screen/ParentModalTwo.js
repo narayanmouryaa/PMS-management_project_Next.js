@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Modal, Typography, Box, Card, CardContent, IconButton, TextField, InputLabel, Input, InputAdornment } from '@mui/material';
-import { Container, FormControl } from 'react-bootstrap';
+// import { Container, FormControl } from 'react-bootstrap';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { Close } from '@mui/icons-material';
-
+import { Close, Email, LockOutlined } from '@mui/icons-material';
+import LinkIcon from '@mui/icons-material/Link';
 
 const style = {
   position: 'absolute',
@@ -11,7 +11,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 800,
-  height: 350,
+  height: 400,
   bgcolor: 'background.paper',
   borderRadius: "10px",
   boxShadow: 24,
@@ -22,7 +22,7 @@ const style = {
   justifyContent: 'space-between',
 };
 
-const ParentModal = ({ open, setOpen }) => {
+const ParentModalTwo = ({ open, setOpen }) => {
   // const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [displayedName, setDisplayedName] = useState('');
@@ -35,9 +35,9 @@ const ParentModal = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleInputChange = (event) => {
-    setName(event.target.value);
-  };
+//   const handleInputChange = (event) => {
+//     setName(event.target.value);
+//   };
 
   // const handleDisplayButtonClick = () => {
   //   setDisplayedName(name);
@@ -79,8 +79,8 @@ const ParentModal = ({ open, setOpen }) => {
             <ArrowBackIosIcon />
           </IconButton>
 
-          <Typography variant='h5' sx={{ fontWeight: 500 }} >
-            Your tasks live in list
+          <Typography variant='h5' sx={{ fontWeight: 400 }} >
+           Who is this folder for ?
           </Typography>
 
           {/* Close button */}
@@ -92,59 +92,54 @@ const ParentModal = ({ open, setOpen }) => {
           </IconButton>
 
           {/* Content */}
-          {/* <TextField
-            label="Enter Name"
+          <form style={{ width: '100%' }}>
+            <TextField
+              name="email"
+              label="Email"
+              variant="outlined"
+              placeholder="Enter your email"
+            //   value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{ mt: 4, width: '100%' }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                    //   onClick={handleInvite}
+                    >
+                      Invite
+                    </Button>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </form>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+              mt: 2,
+            }}
+          >
+            <Button sx={{textTransform:'none',color:'black',mr:1}}> <LinkIcon/>Private Link</Button>
+            <Button sx={{textTransform:'none',color:'black'}} variant="outlined">Copy Link</Button>
+          </Box>
+          
+          <Button
             variant="outlined"
             fullWidth
-            value={name}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            sx={{ mt: 4 }}
-          /> */}
-          <Box>
-            <InputLabel htmlFor="input-with-icon-adornment" style={{  textAlign: 'left' }}>
-              List name
-            </InputLabel>
-            <Input
-              style={{ width: '650px' }}
-              id="input-with-icon-adornment"
-              placeholder="ENTER LIST NAME"
-              type='text'
-              value={name}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              // startAdornment={
-              //   <InputAdornment position="start" >
-
-              //   </InputAdornment>
-              // }
-            />
-          </Box>
+            sx={{ mt: 4 ,textTransform:'none',color:'black'}}
+          >
+            <LockOutlined sx={{ mr: 1,color:'black'}} />
+             Make Private
+          </Button>
 
 
-
-          {/* Displayed names */}
-          {namesList.length > 0 && (
-            <Box sx={{ mt: 2 }}>
-              {/* <strong>Entered Names:</strong> */}
-              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                {namesList.map((n, index) => (
-                  <Box key={index} sx={{ mx: 1 }}>
-                    <Button variant='contained' style={{ textTransform: 'none' }}>
-                      {n}
-                      <IconButton
-                        size="small"
-                        onClick={() => handleRemoveName(n)}
-                      >
-                        <Close sx={{ color: 'white', ml: 1 }} />
-                      </IconButton>
-                    </Button>
-                  </Box>
-
-                ))}
-              </Box>
-            </Box>
-          )}
+          
 
           <Button
             variant="contained"
@@ -156,14 +151,6 @@ const ParentModal = ({ open, setOpen }) => {
           >
             Done
           </Button>
-
-
-
-
-
-
-
-
         </Box>
       </Modal>
 
@@ -172,4 +159,4 @@ const ParentModal = ({ open, setOpen }) => {
 };
 
 
-export default ParentModal;
+export default ParentModalTwo;
