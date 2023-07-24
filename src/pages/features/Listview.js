@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-// import NavbarFixed from "../components/Navbar"
-// import FixedSidenav from '../components/Fixedsidenav'
-// import MiniDrawer from '../components/Minidrawer'
 import Link from "next/link";
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-// import Divider from '@mui/material/Divider';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import { Button } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -37,12 +33,9 @@ function Listview() {
       {/* <Box sx={{ position: 'fixed',display:'flex' }}>
           <Navbar /> 
           <FixedSidenav />
-          <MiniDrawer />  
-
-           
+          <MiniDrawer />            
 
           <Box  sx={{minWidth: 600, mt: 10, ml: 8,overflowX:'scroll'}} >
-
             
             <Typography >
               <span style={{ fontWeight: '600' }}
@@ -78,11 +71,10 @@ function Listview() {
       </Box> */}
 
       <Box sx={{ display: 'flex', position: 'fixed' }}>
-        {/* <NavbarFixed /> */}
+        
 
         <Box sx={{ width: '100vw', display: 'flex' }}>
-          {/* <FixedSidenav /> */}
-          {/* <MiniDrawer /> */}
+                   
 
           <Box className="scrollbar" sx={{ ml: 8, width: '80vw', height: '100%', display: 'flex', overflowX: 'auto' }} >
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Box, Typography } from '@mui/material';
-import FixedSidenav from '../components/Fixedsidenav';
-import Navbar from "../components/Navbar";
+// import FixedSidenav from '../components/Fixedsidenav';
+// import Navbar from "../components/Navbar";
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Input from '@mui/material/Input';
@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import Settingdrawer from './Settingdrawer';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 
 
 
@@ -25,11 +25,6 @@ const SettingPage = () => {
 
     return (
         <>
-
-            <Navbar />
-            <FixedSidenav />
-            <Divider component="li" sx={{ pt: '30px' }} />
-
 
             <Box sx={{ display: 'flex' }}>
                 <Settingdrawer />

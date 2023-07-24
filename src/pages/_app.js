@@ -1,19 +1,25 @@
 "use client"
 import '@/styles/globals.css'
 import ReduxStoreProvider from '@/store/provider'
-import Navbar from "./components/Navbar"
-import FixedSidenav from './components/Fixedsidenav'
-import MiniDrawer from './components/Minidrawer'
+import NavbarFixed from './components/Navbar';
+import FixedSidenav from './components/Fixedsidenav';
+import MiniDrawer from './components/Minidrawer';
 
-export default function App({ Component, pageProps,children }) {
+let pathName = "";
+if (typeof window !== "undefined") {
+  pathName = window.location.pathname
+}
+
+export default function App({ Component, pageProps, children }) {
+  console.log(pathName, pathName === "/Screen/settings")
   return (
     <ReduxStoreProvider>
+      {/* <ToastContainer autoClose={2000} /> */}
       <Component {...pageProps} />
       {children}
-      
-      <Navbar/>  
+      <NavbarFixed />
       <FixedSidenav />
-      <MiniDrawer />
+      {pathName === "/Screen/settings" ? null : <MiniDrawer />} 
     </ReduxStoreProvider>
-  )
+  );
 }

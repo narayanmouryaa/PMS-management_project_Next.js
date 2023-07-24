@@ -44,10 +44,14 @@ const FixedSidenav = () => {
   const handleIconClick = (iconName) => {
     setActiveIcon(iconName);
   };
+  const handleRemoveData = () => {
+    localStorage.removeItem('Userlogintoken'); // Replace 'your_key' with the key you used to store the data
+    // You can also use `localStorage.clear()` to remove all data from localStorage
+  };
 
   return (
     <>
-      <SidenavContainer style={{ zIndex: "2000" }}>
+      <SidenavContainer style={{ zIndex: "502" }}>
         <SidenavIcon
           className={activeIcon === 'home' ? 'active' : ''}
           onClick={() => handleIconClick('home')}
@@ -82,7 +86,7 @@ const FixedSidenav = () => {
         </SidenavIcon>
 
         <Nav.Link href="/"> 
-            <LogoutIcon style={{marginTop:'280px',marginLeft:'20px'}}/>
+            <LogoutIcon style={{marginLeft:"20px",marginTop:"50px"}} onClick={handleRemoveData}/>
             </Nav.Link>        
 
       </SidenavContainer>  

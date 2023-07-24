@@ -14,7 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import { TextField } from "@mui/material";
+import { Checkbox, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { Grid } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -26,7 +26,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
 import Avatar from "../../store/Avatar";
 import axios from 'axios'
-import MultipleSelectCheckmarks from "@/store/multipleselectuser";
+// import MultipleSelectCheckmarks from "@/store/multipleselectuser";
+
 
 
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -50,38 +51,38 @@ const style = {
 
 };
 
-const top10Films = [
-  { label: "The Shawshank Redemption", year: 1994 },
-  { label: "The Godfather", year: 1972 },
-  { label: "The Godfather: Part II", year: 1974 },
-  { label: "The Dark Knight", year: 2008 },
-  { label: "12 Angry Men", year: 1957 },
-  { label: "Schindler's List", year: 1993 },
-  { label: "Pulp Fiction", year: 1994 },
-  {
-    label: "The Lord of the Rings: The Return of the King",
-    year: 2003,
-  },
-  { label: "The Good, the Bad and the Ugly", year: 1966 },
-  { label: "Fight Club", year: 1999 },
-  {
-    label: "The Lord of the Rings: The Fellowship of the Ring",
-    year: 2001,
-  },
-];
-
-
-// const ITEM_HEIGHT = 48;
-// const ITEM_PADDING_TOP = 8;
-
-// const MenuProps = {
-//   PaperProps: {
-//     style: {
-//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-//       width: 250,
-//     },
+// const top10Films = [
+//   { label: "The Shawshank Redemption", year: 1994 },
+//   { label: "The Godfather", year: 1972 },
+//   { label: "The Godfather: Part II", year: 1974 },
+//   { label: "The Dark Knight", year: 2008 },
+//   { label: "12 Angry Men", year: 1957 },
+//   { label: "Schindler's List", year: 1993 },
+//   { label: "Pulp Fiction", year: 1994 },
+//   {
+//     label: "The Lord of the Rings: The Return of the King",
+//     year: 2003,
 //   },
-// };
+//   { label: "The Good, the Bad and the Ugly", year: 1966 },
+//   { label: "Fight Club", year: 1999 },
+//   {
+//     label: "The Lord of the Rings: The Fellowship of the Ring",
+//     year: 2001,
+//   },
+// ];
+
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
 
 
@@ -129,8 +130,20 @@ const CommonModal = ({ open, handleClose }) => {
 
   const [checked, setChecked] = React.useState(true);
 
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
+  // const [personName, setPersonName] = React.useState([]);
+
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
   };
 
   //    const [openModal1,handleClose1] = useState(false);
@@ -250,20 +263,20 @@ const CommonModal = ({ open, handleClose }) => {
       reader.readAsText(file);
     }
   };
-  // const names = [
-  //   'Oliver Hansen',
-  //   'Van Henry',
-  //   'April Tucker',
-  //   'Ralph Hubbard',
-  //   'Omar Alexander',
-  //   'Carlos Abbott',
-  //   'Miriam Wagner',
-  //   'Bradley Wilkerson',
-  //   'Virginia Andrews',
-  //   'Kelly Snyder',
-  //   "narayan Mouray",
-  //   "kanahaiya singh",
-  // ];
+  const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+    "narayan Mouray",
+    "kanahaiya singh",
+  ];
 
 
 
@@ -280,7 +293,7 @@ const CommonModal = ({ open, handleClose }) => {
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
-          style={{ zIndex: "3000" }}
+          // style={{ zIndex: "3000" }}
         >
           <Box sx={style}>
             {viewData === 1 && (
@@ -368,8 +381,8 @@ const CommonModal = ({ open, handleClose }) => {
                         />
                       </FormControl>
                     </Box>
-                    <Box mt={3}>
-                      <FormControl variant="standard" sx={{ minWidth: 200 }}>
+                    <Box>
+                      {/* <FormControl variant="standard" sx={{ minWidth: 200 }}>
                         <InputLabel
                           htmlFor="input-with-icon-adornment"
                           style={{ fontWeight: "600", fontSize: "18px" }}
@@ -397,11 +410,11 @@ const CommonModal = ({ open, handleClose }) => {
                           }
                           
                            />
-                      </FormControl>
+                      </FormControl> */}
 
 
-                      {/* <FormControl sx={{ m: 1, width: 300 }}>
-                        <InputLabel id="demo-multiple-checkbox-label">Select </InputLabel>
+                      <FormControl sx={{ m: 1}}>
+                        <InputLabel sx={{mt:2}} id="demo-multiple-checkbox-label">Select </InputLabel>
                         <Select
                           labelId="demo-multiple-checkbox-label"
                           id="demo-multiple-checkbox"
@@ -411,15 +424,16 @@ const CommonModal = ({ open, handleClose }) => {
                           input={<OutlinedInput label="Tag" />}
                           renderValue={(selected) => selected.join(', ')}
                           MenuProps={MenuProps}
+                          sx={{width:'500px',mt:2}}
                         >
                           {names.map((name) => (
-                            <MenuItem key={name} value={name}>
+                            <MenuItem  key={name} value={name}>
                               <Checkbox checked={personName.indexOf(name) > -1} />
-                              <ListItemText primary={name} />
+                              <ListItemText  primary={name} />
                             </MenuItem>
                           ))}
                         </Select>
-                      </FormControl> */}
+                      </FormControl>
                     </Box>
                   </Box>
                   <Box style={{ display: "flex" }}>

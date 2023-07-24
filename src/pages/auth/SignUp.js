@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import styles from "../../styles/Home.module.css";
 import {
   // userFetchThunk,
   userSignUpThunk,
@@ -49,7 +50,8 @@ export default function SignUp() {
     const api = await axios.post(apiUrl, data, config);
     if (api.status === 200) {
       setCookie("UserRegistertoken", api.data.token);
-      // router.push("/Home");
+      toast.success(api.data.message);
+      router.push("/Home");
       alert(api.data.message);
     } else {
       toast.error(api.data.message);
@@ -75,13 +77,13 @@ export default function SignUp() {
             top: "40%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 500,
             bgcolor: "background.paper",
             borderRadius: "10px",
             boxShadow: 8,
             p: 4,
             mt: 4,
           }}
+          className={styles.container}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
@@ -145,7 +147,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
+                <Link href="/auth/SignIn" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

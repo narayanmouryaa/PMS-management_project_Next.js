@@ -38,7 +38,6 @@ const style = {
     bgcolor: 'background.paper',
     borderRadius: 2,
     boxShadow: 24,
-    
 };
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

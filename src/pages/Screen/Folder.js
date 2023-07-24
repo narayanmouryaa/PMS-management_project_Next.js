@@ -1,27 +1,31 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+// import { styled } from '@mui/material/styles';
+// import Dialog from '@mui/material/Dialog';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import IconButton from '@mui/material/IconButton';
+// import CloseIcon from '@mui/icons-material/Close';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Container from '@mui/material/Container';
+// import Container from '@mui/material/Container';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { Grid } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import SquareIcon from '@mui/icons-material/Square';
 import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
 import ParentModal from './ParentModal';
+import { Close } from '@mui/icons-material';
+import { useState } from 'react';
+// import Typography from '@mui/material';
+
 
 
 const style = {
@@ -38,87 +42,98 @@ const style = {
 
 
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
+// const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+//     '& .MuiDialogContent-root': {
+//         padding: theme.spacing(2),
+//     },
+//     '& .MuiDialogActions-root': {
+//         padding: theme.spacing(1),
+//     },
+// }));
 
-function BootstrapDialogTitle(props) {
-    const { children, onClose, ...other } = props;
+// function BootstrapDialogTitle(props) {
+//     const { children, onClose, ...other } = props;
 
-    return (
-        <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-            {children}
-            {onClose ? (
-                <IconButton
-                    aria-label="close"
-                    onClick={onClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: (theme) => theme.palette.grey[500],
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
-            ) : null}
-        </DialogTitle>
-    );
-}
+//     return (
+//         <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+//             {children}
+//             {onClose ? (
+//                 <IconButton
+//                     aria-label="close"
+//                     onClick={onClose}
+//                     sx={{
+//                         position: 'absolute',
+//                         right: 8,
+//                         top: 8,
+//                         color: (theme) => theme.palette.grey[500],
+//                     }}
+//                 >
+//                     <CloseIcon />
+//                 </IconButton>
+//             ) : null}
+//         </DialogTitle>
+//     );
+// }
 
-BootstrapDialogTitle.propTypes = {
-    children: PropTypes.node,
-    onClose: PropTypes.func.isRequired,
-};
+// BootstrapDialogTitle.propTypes = {
+//     children: PropTypes.node,
+//     onClose: PropTypes.func.isRequired,
+// };
 
 export default function Folder({ open, setOpen }) {
-    // const [open, setOpen] = React.useState(false);
+    const [open1, setOpen1] = React.useState(false);
+    // const [open2, setOpen2] = useState(false)
 
-    // const handleClickOpen = () => {
-    //     setOpen(true);
-    // };
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
-    const handleClose = (event, reason) => {
-        if (reason !== undefined) {
-            if (reason !== "backdropClick") {
-                setOpen(false);
-            }
-        }
-        else {
-            setOpen(false);
-        }
+    const handleOpen = () => {
+        setOpen(true);
     };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    // const handleClose = (event, reason) => {
+    //     if (reason !== undefined) {
+    //         if (reason !== "backdropClick") {
+    //             setOpen(false);
+    //         }
+    //     }
+    //     else {
+    //         setOpen(false);
+    //     }
+    // };
 
     return (
 
-        <div>
-            <BootstrapDialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-            >
+        <>
+
+            <div>
+                {/* <BootstrapDialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                > */}
 
                 <Modal
                     open={open}
                     onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                    style={{zIndex:'4000'}}
+                    style={{ zIndex: '4000' }}
                 >
-                    <Container style={{ display: 'flex', justifyContent: 'center' }} >
+                    <Box style={{ display: 'flex', justifyContent: 'center' }} >
                         <Card sx={style} >
                             <CardContent>
 
-                                <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleClose}>
-                                    Create Folder
-                                </BootstrapDialogTitle>
+                                <IconButton
+                                    sx={{ position: 'absolute', top: '8px', right: '8px' }}
+                                    onClick={handleClose}
+                                >
+                                    <Close />
+                                </IconButton>
+
+                                {/* <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleClose}> */}
+                                <Typography sx={{fontSize:30}}>
+                                   Create Folder 
+                               </Typography>
+                                
+                                {/* </BootstrapDialogTitle> */}
 
 
                                 <Box mt={4}>
@@ -142,15 +157,22 @@ export default function Folder({ open, setOpen }) {
                                 </Box>
                                 <Grid container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
                                     <Grid item xs={10} >
-                                        <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px' }}>
-                                            <ParentModal/>
-                                            <Typography style={{ color: "grey" }}>
-                                                Avatar
-                                            </Typography>
 
+
+                                        <Box onClick={() => {
+
+                                            setOpen1(true);
+                                            setOpen(false);
+                                        }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px' }}>
                                             <Avatar sx={{ bgcolor: red[800] }} variant="rounded">
                                                 A
                                             </Avatar>
+
+
+
+
+
+
 
                                         </Box>
 
@@ -192,10 +214,16 @@ export default function Folder({ open, setOpen }) {
                             </CardContent>
                             <Button variant='contained' style={{ width: '680px', textAlign: "center" }}>Create Folder</Button>
                         </Card>
-                    </Container>
+                    </Box>
 
                 </Modal>
-            </BootstrapDialog>
-        </div>
+                {/* </BootstrapDialog> */}
+            </div>
+
+            <ParentModal open={open1} setOpen={(val) => {
+                setOpen1(val);
+                setOpen(true);
+            }} />
+        </>
     );
 }
