@@ -1,12 +1,12 @@
-import React from 'react'
-import SignIn from './auth/SignIn'
+import React from "react";
+import SignIn from "./auth/SignIn";
 
 const index = () => {
   return (
     <div>
-      <SignIn/>
+      <SignIn />
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default index;

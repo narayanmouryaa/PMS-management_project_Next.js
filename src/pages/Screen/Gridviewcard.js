@@ -15,7 +15,7 @@ import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Autocomplete from "@mui/material/Autocomplete"; // Import Autocomplete
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'; // Import DatePicker
+import { DatePicker } from "@mui/x-date-pickers/DatePicker"; // Import DatePicker
 import { size, weight } from "../assets/theme/theme";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -144,14 +144,17 @@ const GridviewCard = () => {
               margin="normal"
               style={{ marginBottom: 10 }}
             />
-            <Box sx={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
+            <Box
+              sx={{ display: "flex", alignItems: "center", marginBottom: 10 }}
+            >
               <IconButton
                 onClick={() => setFlagColor("#f50057")}
                 style={{
                   color: "#f50057",
                   marginRight: 10,
                   padding: 4,
-                  backgroundColor: flagColor === "#f50057" ? "#f50057" : "transparent",
+                  backgroundColor:
+                    flagColor === "#f50057" ? "#f50057" : "transparent",
                   borderRadius: "50%",
                 }}
               >
@@ -163,7 +166,8 @@ const GridviewCard = () => {
                   color: "#3f51b5",
                   marginRight: 10,
                   padding: 4,
-                  backgroundColor: flagColor === "#3f51b5" ? "#3f51b5" : "transparent",
+                  backgroundColor:
+                    flagColor === "#3f51b5" ? "#3f51b5" : "transparent",
                   borderRadius: "50%",
                 }}
               >
@@ -175,18 +179,21 @@ const GridviewCard = () => {
                   color: "#4caf50",
                   marginRight: 10,
                   padding: 4,
-                  backgroundColor: flagColor === "#4caf50" ? "#4caf50" : "transparent",
+                  backgroundColor:
+                    flagColor === "#4caf50" ? "#4caf50" : "transparent",
                   borderRadius: "50%",
                 }}
               >
-                <FlagIcon/>
+                <FlagIcon />
               </IconButton>
             </Box>
             <DatePicker
               label="Start Date"
               value={startDate}
               onChange={(newValue) => setStartDate(newValue)}
-              renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
+              renderInput={(params) => (
+                <TextField {...params} fullWidth margin="normal" />
+              )}
               style={{ marginBottom: 10 }}
               disablePast
             />
@@ -194,7 +201,9 @@ const GridviewCard = () => {
               label="End Date"
               value={endDate}
               onChange={(newValue) => setEndDate(newValue)}
-              renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
+              renderInput={(params) => (
+                <TextField {...params} fullWidth margin="normal" />
+              )}
               style={{ marginBottom: 10 }}
               disablePast
             />
@@ -205,15 +214,28 @@ const GridviewCard = () => {
               value={assignees}
               onChange={(event, newValue) => setAssignees(newValue)}
               renderInput={(params) => (
-                <TextField {...params} label="Assignees" fullWidth margin="normal" />
+                <TextField
+                  {...params}
+                  label="Assignees"
+                  fullWidth
+                  margin="normal"
+                />
               )}
             />
             {editCardIndex !== -1 ? (
-              <Button onClick={handleUpdateCard} variant="contained" color="primary">
+              <Button
+                onClick={handleUpdateCard}
+                variant="contained"
+                color="primary"
+              >
                 Update Card
               </Button>
             ) : (
-              <Button onClick={handleCardSave} variant="contained" color="primary">
+              <Button
+                onClick={handleCardSave}
+                variant="contained"
+                color="primary"
+              >
                 Save Card
               </Button>
             )}
@@ -248,10 +270,16 @@ const GridviewCard = () => {
                   <FlagIcon />
                 </IconButton>
                 <Stack direction="row" spacing={1} alignItems="center">
-                  {card.startDate && <Typography>{card.startDate.toLocaleDateString()}</Typography>}
+                  {card.startDate && (
+                    <Typography>
+                      {card.startDate.toLocaleDateString()}
+                    </Typography>
+                  )}
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
-                  {card.endDate && <Typography>{card.endDate.toLocaleDateString()}</Typography>}
+                  {card.endDate && (
+                    <Typography>{card.endDate.toLocaleDateString()}</Typography>
+                  )}
                 </Stack>
                 {card.assignees && card.assignees.length > 0 && (
                   <Stack direction="row" spacing={1} alignItems="center">
