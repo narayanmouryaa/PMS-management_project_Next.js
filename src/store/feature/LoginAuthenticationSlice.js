@@ -1,27 +1,38 @@
-"use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 const initialState = {
-    data: [],
-    error: "",
-    status: false,
-    postData: "",
-    postError: "",
-    postStatus: false,
-    loading: false,
+  data: [],
+  error: "",
+  status: false,
+  postData: "",
+  postError: "",
+  postStatus: false,
+  loading: false,
 };
 
 //user Signup function
 export const userSignUpThunk = createAsyncThunk(
-  "uuserSignUpThunk/post",
-  async (data) => {
+  "userSignUpThunk/post",
+  async (userData) => {
+    // const router = useRouter();
+    // const [cookies, setCookie] = useCookies(["name"]);
     try {
       const headers = {
         "Content-Type": "application/json",
       };
-      const apiUrl = `https://pmsapi.qrstaff.in/api/user/signup`;
-      const api = await axios.post(apiUrl, data, headers);
-      console.log(api, "data");
+      const { data } = await axios.post(
+        `https://pmsapi.qrstaff.in/api/user/signup`,
+        userData,
+        headers
+      );
+      console.log(data, "ApiData");
+      // setCookie("UserRegistertoken", api.data.token);
+      // toast.success(api.data.message);
+      // router.push("/Home");
       return data;
     } catch (error) {
       if (error.response.status === 400) {

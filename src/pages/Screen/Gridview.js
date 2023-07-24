@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 // import CardActions from '@mui/material/CardActions';
 // import CardContent from '@mui/material/CardContent';
 // import Typography from '@mui/material/Typography';
-import GridviewCard from './Gridviewcard';
+import GridviewCard from './GridviewCard';
 // import Divider from '@mui/material/Divider';
 // import Form from 'react-bootstrap/Form';
 // import Avatar from '@mui/material/Avatar';

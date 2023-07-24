@@ -10,9 +10,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import axios from "axios";
-import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
+// import { useCookies } from "react-cookie";
+// import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
@@ -25,14 +24,14 @@ import {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const router = useRouter();
+  // const router = useRouter();
   const dispatch = useDispatch();
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const [cookies, setCookie] = useCookies(["name"]);
+  // const [cookies, setCookie] = useCookies(["name"]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,28 +40,27 @@ export default function SignUp() {
 
   console.log(process.env.REACT_APP_BASE_URL, "apiEndPoint");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const config = {
-      "Content-Type": "application/json",
-    };
-    const apiUrl = `https://pmsapi.qrstaff.in/api/user/signup`;
-    const api = await axios.post(apiUrl, data, config);
-    if (api.status === 200) {
-      setCookie("UserRegistertoken", api.data.token);
-      toast.success(api.data.message);
-      router.push("/Home");
-      alert(api.data.message);
-    } else {
-      toast.error(api.data.message);
-    }
-  };
-
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
-  //   dispatch(userSignUpThunk(data));
-  //   // dispatch(userFetchThunk());
+  //   const config = {
+  //     "Content-Type": "application/json",
+  //   };
+  //   const apiUrl = `https://pmsapi.qrstaff.in/api/user/signup`;
+  //   const api = await axios.post(apiUrl, data, config);
+  //   if (api.status === 200) {
+  //     setCookie("UserRegistertoken", api.data.token);
+  //     toast.success(api.data.message);
+  //     router.push("/Home");
+  //   } else {
+  //     toast.error(api.data.message);
+  //   }
   // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(userSignUpThunk(data));
+    // dispatch(userFetchThunk());
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

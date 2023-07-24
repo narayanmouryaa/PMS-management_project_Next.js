@@ -1,18 +1,16 @@
-"use client";
 import "@/styles/globals.css";
-import ReduxStoreProvider from "@/store/provider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./Home";
+import {Provider} from 'react-redux'
+import {store} from '../store/store'
 
-export default function App({ Component, pageProps, children }) {
+export default function App({ Component, pageProps}) {
   return (
-    <ReduxStoreProvider>
+    <Provider store={store}>
       <ToastContainer autoClose={2000} />
       <Component {...pageProps} />
-      {children}
       {/* <Home/> */}
- 
-    </ReduxStoreProvider>
+    </Provider>
   );
 }

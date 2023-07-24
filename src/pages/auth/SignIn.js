@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../../styles/Home.module.css";
 // import { size } from '../assets/theme/theme'
+import { weight } from "../assets/theme/theme";
 
 const SignIn = () => {
   const navigate = useRouter();
@@ -38,7 +39,7 @@ const SignIn = () => {
       localStorage.setItem("Userlogintoken", api.data.token);
       setCookie("Userlogintoken", api.data.token);
       toast.success(api.data.message);
-      console.log(api.data.message);
+      // console.log(api.data.message);
       navigate.push("/Home");
     } else {
       alert(api.data.message);
@@ -60,13 +61,15 @@ const SignIn = () => {
   return (
     <div>
       <ToastContainer autoClose={2000} />
-      <h2 style={{ textAlign: "center", fontSize: "40px", marginTop: "60px" }}>
+      <h2
+        style={{ textAlign: "center", fontSize: "larage", marginTop: "60px" }}
+      >
         Project Management System
       </h2>
       <h5
         style={{
           textAlign: "center",
-          fontWeight: "600",
+          fontWeight: weight.medium,
           marginTop: "40px",
           fontSize: "16px",
         }}

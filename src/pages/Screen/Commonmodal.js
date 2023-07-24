@@ -24,7 +24,7 @@ import SquareIcon from "@mui/icons-material/Square";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
-import Avatar from "../../store/Avatar";
+import Avatar from "./Avatar";
 import axios from 'axios'
 
 const style = {
