@@ -22,6 +22,8 @@ import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
 import Stack from '@mui/material/Stack';
 import ParentModal from './ParentModal';
+import ParentModalTwo from './ParentModalTwo';
+import ParentModalThree from './ParentModalThree';
 import { Close } from '@mui/icons-material';
 import { useState } from 'react';
 // import Typography from '@mui/material';
@@ -82,6 +84,8 @@ const style = {
 
 export default function Folder({ open, setOpen }) {
     const [open1, setOpen1] = React.useState(false);
+    const [open2, setOpen2] = React.useState(false);
+    const [open3, setOpen3] = React.useState(false)
     // const [open2, setOpen2] = useState(false)
 
     const handleOpen = () => {
@@ -129,10 +133,10 @@ export default function Folder({ open, setOpen }) {
                                 </IconButton>
 
                                 {/* <BootstrapDialogTitle sx={{ fontSize: 40, fontWeight: 600 }} id="customized-dialog-title" onClose={handleClose}> */}
-                                <Typography sx={{fontSize:30}}>
-                                   Create Folder 
-                               </Typography>
-                                
+                                <Typography sx={{ fontSize: 30 }}>
+                                    Create Folder
+                                </Typography>
+
                                 {/* </BootstrapDialogTitle> */}
 
 
@@ -163,16 +167,12 @@ export default function Folder({ open, setOpen }) {
 
                                             setOpen1(true);
                                             setOpen(false);
-                                        }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px' }}>
-                                            <Avatar sx={{ bgcolor: red[800] }} variant="rounded">
+                                        }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px', cursor: 'pointer' }}>
+                                            {/* <Avatar sx={{ bgcolor: red[800] }} variant="rounded">
+
                                                 A
-                                            </Avatar>
-
-
-
-
-
-
+                                            </Avatar> */}
+                                            Lists
 
                                         </Box>
 
@@ -181,13 +181,25 @@ export default function Folder({ open, setOpen }) {
 
                                 <Grid container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <Grid item xs={10} >
-                                        <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 0, height: '60px', padding: '15px' }}>
+
+
+                                        {/* <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 0, height: '60px', padding: '15px' }}>
                                             <Typography style={{ color: "grey" }}>
                                                 Shared with
                                             </Typography>
                                             <Avatar sx={{ bgcolor: red[800] }} >
                                                 A
                                             </Avatar>
+                                        </Box> */}
+
+                                        <Box onClick={() => {
+
+                                            setOpen2(true);
+                                            setOpen(false);
+                                        }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px', cursor: 'pointer' }}>
+
+                                            Share Folder with
+
                                         </Box>
 
                                     </Grid>
@@ -196,19 +208,30 @@ export default function Folder({ open, setOpen }) {
 
                                 <Grid container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '50px' }}>
                                     <Grid item xs={10} >
-                                        <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 0, height: '60px', padding: '15px' }}>
-                                            <Typography style={{ color: "grey" }}>
+                                        {/* <Box  
+                                         style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 0, height: '60px', padding: '15px' }}>
+                                            {/* <Typography style={{ color: "grey" }}>
                                                 Task statuses
                                             </Typography>
 
-                                            <Stack flexDirection="row">
+                                             <Stack flexDirection="row">
                                                 <SquareIcon style={{ color: 'black' }} />
                                                 <SquareIcon style={{ color: 'green' }} />
                                                 <SquareIcon style={{ color: 'blue' }} />
                                                 <SquareIcon style={{ color: 'pink' }} />
                                                 <SquareIcon style={{ color: 'red' }} />
-                                            </Stack>
+                                            </Stack> 
+                                        </Box> */}
+                                        <Box onClick={() => {
+
+                                            setOpen3(true);
+                                            setOpen(false);
+                                        }} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid black', borderBottomWidth: 1, borderTopWidth: 1, height: '60px', padding: '15px', cursor: 'pointer' }}>
+
+                                            Task statuses
+
                                         </Box>
+
                                     </Grid>
                                 </Grid>
                             </CardContent>
@@ -220,10 +243,9 @@ export default function Folder({ open, setOpen }) {
                 {/* </BootstrapDialog> */}
             </div>
 
-            <ParentModal open={open1} setOpen={(val) => {
-                setOpen1(val);
-                setOpen(true);
-            }} />
+            <ParentModal open={open1} setOpen={(val) => { setOpen1(val); setOpen(true); }} />
+            <ParentModalTwo open={open2} setOpen={(val) => { setOpen2(val); setOpen(true) }} />
+            <ParentModalThree open={open3} setOpen={(val) => { setOpen3(val); setOpen(true) }} />
         </>
     );
 }
