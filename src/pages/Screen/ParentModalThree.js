@@ -49,7 +49,7 @@ const ParentModal = ({ open, setOpen }) => {
                     </IconButton>
 
                     <Typography variant='h5' sx={{ fontWeight: 500 }} >
-                        What task statuses do you want ?
+                        What task status do you want ?
                     </Typography>
                     {/* Learn More link */}
                     <Link href="#" color="primary" variant="body1" >
